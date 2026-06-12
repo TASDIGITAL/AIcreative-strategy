@@ -119,23 +119,61 @@ function AnimatedHeadline({ text }) {
   );
 }
 
-/* The VSL — 16:9 YouTube facade. Click to load the iframe (no autoload). */
+/* ---- Cloudflare Stream / HLS helpers ----
+   Reels + VSL are hosted on Cloudflare Stream and delivered as HLS.
+   Safari plays HLS natively; everywhere else we attach hls.js (loaded in
+   index.html). Sources are only attached on first interaction (hover/click)
+   so non-engaging visitors cost ~zero Stream delivery. */
+function isHlsSrc(src) { return /\.m3u8($|\?)/.test(src || ""); }
+
+function attachStreamSrc(el, src) {
+  if (!el || !src || el.dataset.srcAttached) return;
+  el.dataset.srcAttached = "1";
+  if (!isHlsSrc(src) || el.canPlayType("application/vnd.apple.mpegurl")) { el.src = src; return; }
+  if (window.Hls && window.Hls.isSupported()) {
+    const h = new window.Hls({ maxBufferLength: 12 });
+    h.loadSource(src);
+    h.attachMedia(el);
+    el._hls = h;
+  } else {
+    el.src = src; // last-resort fallback
+  }
+}
+
+function detachStreamSrc(el) {
+  if (el && el._hls) { el._hls.destroy(); delete el._hls; }
+}
+
+/* The VSL — 16:9 click-to-play facade. Accepts a YouTube ID or a Cloudflare
+   Stream video UID (32-char hex); no media loads until the visitor clicks. */
 function VSLPlayer({ videoId, badge }) {
   const [playing, setPlaying] = useState(false);
+  const isStream = /^[0-9a-f]{32}$/.test(videoId || "");
+  const embedSrc = isStream
+    ? `https://${window.STREAM_SUB}/${videoId}/iframe?autoplay=true&preload=metadata`
+    : `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+  const posterSrc = isStream
+    ? `https://${window.STREAM_SUB}/${videoId}/thumbnails/thumbnail.jpg?time=2s&height=720`
+    : null;
   return (
     <div className="vsl">
       {badge && <div className="vsl-badge">{badge}</div>}
       <div className="vsl-frame">
         {playing && videoId ? (
           <iframe
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+            src={embedSrc}
             title="TAS Digital VSL" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen
           />
         ) : (
           <button className="vsl-poster" onClick={() => setPlaying(true)} aria-label="Play video">
-            <Placeholder label="VSL · 16:9 · paste YouTube embed" />
+            {posterSrc ? (
+              <img src={posterSrc} alt="" loading="eager"
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+            ) : (
+              <Placeholder label="VSL · 16:9" />
+            )}
             <span className="vsl-play"><PlayIcon size={30} /></span>
-            <span className="vsl-dur">12:48</span>
+            <span className="vsl-dur">1:13</span>
           </button>
         )}
       </div>
@@ -148,6 +186,21 @@ function PlayIcon({ size = 22 }) {
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M8 5.5v13a.8.8 0 0 0 1.22.68l10.4-6.5a.8.8 0 0 0 0-1.36L9.22 4.82A.8.8 0 0 0 8 5.5z" />
     </svg>
+  );
+}
+
+/* Lightbox video — attaches the HLS source on mount (user already clicked) */
+function LightboxVideo({ item }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    attachStreamSrc(el, item.src);
+    if (el) el.play().catch(() => {});
+    return () => detachStreamSrc(el);
+  }, [item]);
+  return (
+    <video ref={ref} className="lb-video" poster={item.poster || undefined}
+      controls autoPlay playsInline />
   );
 }
 
@@ -166,8 +219,7 @@ function Lightbox({ item, kind, onClose }) {
       <button className="lb-close" onClick={onClose} aria-label="Close">×</button>
       <div className={"lb-stage " + (vertical ? "lb-vert" : "lb-flex")} onClick={(e) => e.stopPropagation()}>
         {vertical && item.src ? (
-          <video className="lb-video" src={item.src} poster={item.poster || undefined}
-            controls autoPlay playsInline />
+          <LightboxVideo item={item} />
         ) : !vertical && item.src ? (
           <img className="lb-img" src={item.src} alt={item.label} />
         ) : (
@@ -184,4 +236,4 @@ function Lightbox({ item, kind, onClose }) {
   );
 }
 
-Object.assign(window, { Placeholder, Stars, Reveal, VSLPlayer, PlayIcon, Lightbox, CountUp, AnimatedHeadline });
+Object.assign(window, { Placeholder, Stars, Reveal, VSLPlayer, PlayIcon, Lightbox, CountUp, AnimatedHeadline, attachStreamSrc, detachStreamSrc });

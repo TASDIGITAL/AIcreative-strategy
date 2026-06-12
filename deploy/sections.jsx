@@ -195,16 +195,21 @@ function Trust() {
   );
 }
 
-/* ---- Video reels grid ---- */
+/* ---- Video reels grid ----
+   Tiles show the Stream thumbnail (poster) only; the HLS source is attached
+   lazily on first hover/focus so idle visitors cost ~zero delivery. */
 function ReelTile({ v, onOpen }) {
   const vidRef = useRef(null);
-  const hoverIn = () => { const el = vidRef.current; if (el) { el.play().catch(() => {}); } };
+  const hoverIn = () => {
+    const el = vidRef.current;
+    if (el) { attachStreamSrc(el, v.src); el.play().catch(() => {}); }
+  };
   const hoverOut = () => { const el = vidRef.current; if (el) { el.pause(); el.currentTime = 0; } };
   return (
     <button className="reel" onClick={() => onOpen(v, "video")} aria-label={"Play " + v.label}
       onMouseEnter={hoverIn} onMouseLeave={hoverOut} onFocus={hoverIn} onBlur={hoverOut}>
       {v.src ? (
-        <video ref={vidRef} className="reel-media" src={v.src} poster={v.poster || undefined}
+        <video ref={vidRef} className="reel-media" poster={v.poster || undefined}
           muted loop playsInline preload="metadata" />
       ) : (
         <Placeholder label={v.label} style={{ position: "absolute", inset: 0, borderRadius: 14 }} />

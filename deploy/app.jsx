@@ -8,7 +8,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "headline": "AI ad creatives that beat your best ad.|Or you don’t pay.",
   "sub": "TAS Digital produces AI-powered video and static ads engineered to outperform whatever you’re running today — guaranteed.",
   "cta": "Book a call",
-  "videoId": ""
+  "videoId": "b22cd8378f8eb0293c78ffc7b711c320"
 }/*EDITMODE-END*/;
 
 function renderHeadline(text) {
