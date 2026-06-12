@@ -1,0 +1,173 @@
+/* ============================================================
+   TAS Digital — VSL landing page
+   Aesthetic: bold, high-converting, dark, electric accent
+   Type: Archivo (headlines, heavy) + Manrope (body)
+   ============================================================ */
+
+:root {
+  /* surfaces — cool near-black */
+  --bg:        oklch(0.165 0.012 284);
+  --bg-2:      oklch(0.205 0.014 284);
+  --surface:   oklch(0.225 0.015 284);
+  --surface-2: oklch(0.265 0.016 284);
+  --line:      oklch(0.32 0.018 284);
+  --line-soft: oklch(0.28 0.016 284);
+
+  /* text */
+  --ink:       oklch(0.97 0.005 284);
+  --ink-soft:  oklch(0.80 0.012 284);
+  --ink-mute:  oklch(0.64 0.014 284);
+
+  /* brand — exact gradient sampled from the logo */
+  --brand-indigo:  #2C24AE;
+  --brand-purple:  #7A2CC0;
+  --brand-grad:      linear-gradient(135deg, #3A29C4 0%, #7A2CC0 100%);
+  --brand-grad-soft: linear-gradient(135deg, #2C24AE 0%, #7A2CC0 100%);
+
+  /* accent — bright brand-violet for dark UI (tweakable) */
+  --accent:        #9D7BFF;
+  --accent-deep:   #7A2CC0;
+  --accent-ink:    #160a33;
+  --accent-glow:   color-mix(in oklab, var(--brand-purple) 52%, transparent);
+  --accent-faint:  color-mix(in oklab, var(--accent) 13%, transparent);
+
+  /* star / rating gold for google */
+  --gold: oklch(0.82 0.16 85);
+
+  --maxw: 1180px;
+  --radius: 16px;
+  --radius-lg: 26px;
+  --shadow: 0 24px 60px -20px rgba(0,0,0,0.7);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .display {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+/* ---- shared section scaffolding ---- */
+.section { padding: clamp(64px, 9vw, 128px) 0; position: relative; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: "Manrope", sans-serif; font-weight: 700;
+  font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 18px;
+}
+.eyebrow::before {
+  content: ""; width: 22px; height: 2px; background: var(--accent); border-radius: 2px;
+}
+.eyebrow.center { justify-content: center; }
+.eyebrow.center::before { display: none; }
+
+.section-head { text-align: center; max-width: 760px; margin: 0 auto clamp(40px, 5vw, 64px); }
+.section-head h2 { font-size: clamp(34px, 4.6vw, 60px); }
+.section-head p { color: var(--ink-soft); font-size: clamp(16px, 1.4vw, 20px); margin-top: 18px; }
+
+/* ---- buttons ---- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-weight: 800; font-size: 17px; letter-spacing: -0.01em;
+  padding: 17px 30px; border-radius: 999px; border: 0;
+  transition: transform .18s cubic-bezier(.2,.8,.2,1), box-shadow .25s, background .2s;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--brand-grad); color: #fff;
+  box-shadow: 0 0 0 0 var(--accent-glow), 0 14px 34px -10px var(--accent-glow);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 34px 2px var(--accent-glow), 0 20px 44px -12px var(--accent-glow);
+}
+.btn-ghost {
+  background: transparent; color: var(--ink);
+  border: 1.5px solid var(--line);
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.btn-lg { padding: 21px 40px; font-size: 19px; }
+
+/* ---- pill / chip ---- */
+.pill {
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  padding: 8px 16px; border-radius: 999px;
+  background: var(--accent-faint); border: 1px solid color-mix(in oklab, var(--accent) 35%, transparent);
+  color: var(--accent); font-weight: 700; font-size: 13.5px; letter-spacing: 0.01em;
+}
+
+/* ---- nav ---- */
+.nav {
+  position: sticky; top: 0; z-index: 40;
+  backdrop-filter: blur(14px);
+  background: color-mix(in oklab, var(--bg) 78%, transparent);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s, background .3s;
+}
+.nav.scrolled { border-bottom-color: var(--line-soft); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+.brand { display: flex; align-items: center; gap: 11px; }
+.brand-logo { height: 30px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 30px; }
+.nav-links a { color: var(--ink-soft); font-weight: 600; font-size: 15px; transition: color .2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--ink); }
+@media (max-width: 820px) { .nav-links .nav-link { display: none; } }
+
+/* ---- placeholder media ---- */
+.ph {
+  position: relative; overflow: hidden;
+  background:
+    repeating-linear-gradient(135deg,
+      oklch(0.26 0.015 284) 0 11px,
+      oklch(0.235 0.014 284) 11px 22px);
+  display: grid; place-items: center;
+}
+.ph-label {
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--ink-mute); background: var(--bg-2);
+  padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line-soft);
+}
+
+/* ---- reveal on scroll (visible is the base; .pre hides pre-animation) ---- */
+.reveal { transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1), filter .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.pre { opacity: 0; transform: translateY(22px) scale(0.988); filter: blur(7px); }
+@media (prefers-reduced-motion: reduce) { .reveal, .reveal.pre { opacity: 1; transform: none; filter: none; transition: none; } }
+
+/* ---- headline word slide-in ---- */
+.hw { display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  .hw {
+    opacity: 0; transform: translateY(0.38em); filter: blur(6px);
+    animation: hw-in .55s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  @keyframes hw-in { to { opacity: 1; transform: none; filter: none; } }
+  /* safety net: never leave the headline hidden if animations can't run */
+  .hwrap.settled .hw { animation: none; opacity: 1; transform: none; filter: none; }
+}
+
+/* fonts loaded via google in index */
