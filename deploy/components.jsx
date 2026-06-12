@@ -129,14 +129,17 @@ function isHlsSrc(src) { return /\.m3u8($|\?)/.test(src || ""); }
 function attachStreamSrc(el, src) {
   if (!el || !src || el.dataset.srcAttached) return;
   el.dataset.srcAttached = "1";
-  if (!isHlsSrc(src) || el.canPlayType("application/vnd.apple.mpegurl")) { el.src = src; return; }
+  if (!isHlsSrc(src)) { el.src = src; return; }
+  // Prefer hls.js wherever MSE is available (Chrome/Firefox/Edge — their
+  // native canPlayType for HLS can report "maybe" yet stall). Native HLS is
+  // the fallback for iOS Safari, where hls.js isn't supported.
   if (window.Hls && window.Hls.isSupported()) {
     const h = new window.Hls({ maxBufferLength: 12 });
     h.loadSource(src);
     h.attachMedia(el);
     el._hls = h;
   } else {
-    el.src = src; // last-resort fallback
+    el.src = src; // native HLS (iOS Safari) or last-resort fallback
   }
 }
 
