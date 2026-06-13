@@ -134,7 +134,7 @@ function attachStreamSrc(el, src) {
   // native canPlayType for HLS can report "maybe" yet stall). Native HLS is
   // the fallback for iOS Safari, where hls.js isn't supported.
   if (window.Hls && window.Hls.isSupported()) {
-    const h = new window.Hls({ maxBufferLength: 12 });
+    const h = new window.Hls({ maxBufferLength: 10, backBufferLength: 0 });
     h.loadSource(src);
     h.attachMedia(el);
     el._hls = h;
@@ -143,8 +143,19 @@ function attachStreamSrc(el, src) {
   }
 }
 
+/* Fully tear a stream down: destroy the hls.js instance, release the media
+   element's decoder/MediaSource, and clear the attach flag so the tile can
+   re-attach cleanly next time. Without this, every hovered reel keeps a live
+   MediaSource buffering in the background — they pile up, exhaust Chrome's
+   media-decoder limit, and the page locks up (scroll freezes) while audio on
+   the lightbox starts failing intermittently. */
 function detachStreamSrc(el) {
-  if (el && el._hls) { el._hls.destroy(); delete el._hls; }
+  if (!el) return;
+  if (el._hls) { try { el._hls.destroy(); } catch (e) {} delete el._hls; }
+  try { el.pause(); } catch (e) {}
+  el.removeAttribute("src");
+  try { el.load(); } catch (e) {} // releases the decoder / MediaSource
+  delete el.dataset.srcAttached;  // allow a clean re-attach on next hover
 }
 
 /* The VSL — 16:9 click-to-play facade. Accepts a YouTube ID or a Cloudflare

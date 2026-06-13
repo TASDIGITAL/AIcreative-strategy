@@ -204,7 +204,12 @@ function ReelTile({ v, onOpen }) {
     const el = vidRef.current;
     if (el) { attachStreamSrc(el, v.src); el.play().catch(() => {}); }
   };
-  const hoverOut = () => { const el = vidRef.current; if (el) { el.pause(); el.currentTime = 0; } };
+  // Tear the stream all the way down (not just pause) so we never keep more
+  // than the one hovered reel's MediaSource alive — prevents the decoder
+  // pile-up that froze scrolling and dropped lightbox audio.
+  const hoverOut = () => { detachStreamSrc(vidRef.current); };
+  // Safety net: release the stream if the tile unmounts while still playing.
+  useEffect(() => () => detachStreamSrc(vidRef.current), []);
   return (
     <button className="reel" onClick={() => onOpen(v, "video")} aria-label={"Play " + v.label}
       onMouseEnter={hoverIn} onMouseLeave={hoverOut} onFocus={hoverIn} onBlur={hoverOut}>
