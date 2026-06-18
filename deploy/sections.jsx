@@ -202,20 +202,23 @@ function ReelTile({ v, onOpen }) {
   const vidRef = useRef(null);
   const hoverIn = () => {
     const el = vidRef.current;
-    if (el) { attachStreamSrc(el, v.src); el.play().catch(() => {}); }
+    if (!el) return;
+    el.muted = true;                 // hover previews are always silent
+    attachStreamSrc(el, v.src);
+    el.play().catch(() => {});
   };
-  // Tear the stream all the way down (not just pause) so we never keep more
-  // than the one hovered reel's MediaSource alive — prevents the decoder
-  // pile-up that froze scrolling and dropped lightbox audio.
+  // Tear the player down on mouse-out so only the hovered tile keeps a live
+  // media decoder. Leaving them all alive exhausts the browser's decoder pool
+  // and breaks playback / drops audio until a refresh.
   const hoverOut = () => { detachStreamSrc(vidRef.current); };
-  // Safety net: release the stream if the tile unmounts while still playing.
+  // Free the decoder if the tile unmounts while still playing.
   useEffect(() => () => detachStreamSrc(vidRef.current), []);
   return (
     <button className="reel" onClick={() => onOpen(v, "video")} aria-label={"Play " + v.label}
       onMouseEnter={hoverIn} onMouseLeave={hoverOut} onFocus={hoverIn} onBlur={hoverOut}>
       {v.src ? (
         <video ref={vidRef} className="reel-media" poster={v.poster || undefined}
-          muted loop playsInline preload="metadata" />
+          muted loop playsInline preload="none" />
       ) : (
         <Placeholder label={v.label} style={{ position: "absolute", inset: 0, borderRadius: 14 }} />
       )}

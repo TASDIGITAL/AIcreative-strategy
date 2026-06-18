@@ -134,7 +134,7 @@ function attachStreamSrc(el, src) {
   // native canPlayType for HLS can report "maybe" yet stall). Native HLS is
   // the fallback for iOS Safari, where hls.js isn't supported.
   if (window.Hls && window.Hls.isSupported()) {
-    const h = new window.Hls({ maxBufferLength: 10, backBufferLength: 0 });
+    const h = new window.Hls({ maxBufferLength: 12 });
     h.loadSource(src);
     h.attachMedia(el);
     el._hls = h;
@@ -143,19 +143,15 @@ function attachStreamSrc(el, src) {
   }
 }
 
-/* Fully tear a stream down: destroy the hls.js instance, release the media
-   element's decoder/MediaSource, and clear the attach flag so the tile can
-   re-attach cleanly next time. Without this, every hovered reel keeps a live
-   MediaSource buffering in the background — they pile up, exhaust Chrome's
-   media-decoder limit, and the page locks up (scroll freezes) while audio on
-   the lightbox starts failing intermittently. */
 function detachStreamSrc(el) {
   if (!el) return;
   if (el._hls) { try { el._hls.destroy(); } catch (e) {} delete el._hls; }
-  try { el.pause(); } catch (e) {}
+  // Fully release the underlying MediaSource / decoders so we don't pile up
+  // live media elements (browsers cap concurrent decoders — leaking them
+  // breaks playback and drops audio until a refresh).
   el.removeAttribute("src");
-  try { el.load(); } catch (e) {} // releases the decoder / MediaSource
-  delete el.dataset.srcAttached;  // allow a clean re-attach on next hover
+  try { el.load(); } catch (e) {}
+  delete el.dataset.srcAttached;
 }
 
 /* The VSL — 16:9 click-to-play facade. Accepts a YouTube ID or a Cloudflare
@@ -203,13 +199,18 @@ function PlayIcon({ size = 22 }) {
   );
 }
 
-/* Lightbox video — attaches the HLS source on mount (user already clicked) */
+/* Lightbox video — attaches the HLS source on mount (user already clicked).
+   Tries to play WITH sound first; if the browser blocks unmuted autoplay it
+   falls back to muted playback so the video always plays (controls let the
+   viewer unmute). The HLS instance is destroyed on close. */
 function LightboxVideo({ item }) {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
+    if (!el) return;
+    el.muted = false;
     attachStreamSrc(el, item.src);
-    if (el) el.play().catch(() => {});
+    el.play().catch(() => { el.muted = true; el.play().catch(() => {}); });
     return () => detachStreamSrc(el);
   }, [item]);
   return (
@@ -220,12 +221,22 @@ function LightboxVideo({ item }) {
 
 /* Lightbox modal for videos / statics */
 function Lightbox({ item, kind, onClose }) {
+  // Lock background scroll for the modal's lifetime, and ALWAYS restore it on
+  // unmount — no matter how the modal closes (button, backdrop, Escape). Empty
+  // deps so the lock can't get stuck by re-renders / changing onClose identity.
   useEffect(() => {
-    const onKey = (e) => { if (e.key === "Escape") onClose(); };
-    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
-  }, [onClose]);
+    return () => { document.body.style.overflow = prev || ""; };
+  }, []);
+  // Escape-to-close, reading the latest onClose via a ref.
+  const closeRef = useRef(onClose);
+  closeRef.current = onClose;
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") closeRef.current(); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
   if (!item) return null;
   const vertical = kind === "video";
   return (
