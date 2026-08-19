@@ -296,6 +296,40 @@ function TechStack() {
   );
 }
 
+/* ---- Pricing ---- */
+function Pricing() {
+  return (
+    <section className="section pricing-section" id="pricing">
+      <div className="wrap">
+        <div className="section-head">
+          <span className="eyebrow center">Pricing</span>
+          <h2>AI animation ads, priced to scale.</h2>
+          <p>Full concept-to-delivery animation ad production — idea, concept, script, generation and editing — with 3 free revisions on every package.</p>
+        </div>
+        <div className="pricing-grid">
+          {PRICING.map((p) => (
+            <div className={"price-card" + (p.highlight ? " feat" : "")} key={p.name}>
+              {p.badge ? <span className="price-badge">{p.badge}</span> : null}
+              <div className="price-name">{p.name}</div>
+              <p className="price-lead">{p.lead}</p>
+              <div className="price-amount">
+                <span className="num">{p.perVideo}</span>
+                <span className="unit">{p.unit}</span>
+              </div>
+              <div className="price-total">{p.total}</div>
+              <ul className="price-feats">
+                {p.features.map((f, i) => <li key={i}>{f}</li>)}
+              </ul>
+              <a href="#book" className="btn btn-primary price-cta">Book a call →</a>
+            </div>
+          ))}
+        </div>
+        <p className="price-note">Every package includes full conceptualization + 3 free revisions. Prices are per video; add 2 variations per video on any package.</p>
+      </div>
+    </section>
+  );
+}
+
 /* ---- FAQ ---- */
 function FAQ() {
   const [open, setOpen] = useState(0);
@@ -356,4 +390,4 @@ function Footer() {
   );
 }
 
-Object.assign(window, { Logos, Stats, Trust, Videos, Statics, TechStack, FAQ, FinalCTA, Footer });
+Object.assign(window, { Logos, Stats, Trust, Videos, Statics, TechStack, Pricing, FAQ, FinalCTA, Footer });
