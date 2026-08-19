@@ -42,6 +42,7 @@ function App() {
       <Statics />
       <Trust />
       <TechStack />
+      <Pricing />
       <FAQ />
       <FinalCTA cta={t.cta} />
       <Footer />
