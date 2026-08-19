@@ -38,9 +38,9 @@ function App() {
       />
       <Logos />
       <Stats />
-      <Trust />
       <Videos onOpen={openLb} />
-      <Statics onOpen={openLb} />
+      <Statics />
+      <Trust />
       <TechStack />
       <FAQ />
       <FinalCTA cta={t.cta} />
