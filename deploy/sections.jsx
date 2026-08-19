@@ -122,7 +122,6 @@ function ReviewCarousel() {
     const step = card ? card.offsetWidth + 20 : el.clientWidth * 0.8;
     const max = el.scrollWidth - el.clientWidth;
     const target = Math.max(0, Math.min(max, el.scrollLeft + dir * step));
-    // snap fights animated scroll — relax it for the duration, then restore
     const prev = el.style.scrollSnapType;
     el.style.scrollSnapType = "none";
     el.scrollTo({ left: target, behavior: "smooth" });
@@ -130,7 +129,6 @@ function ReviewCarousel() {
     el._snapT = setTimeout(() => { el.style.scrollSnapType = prev; }, 520);
   }, []);
 
-  // pointer drag-to-scroll
   const onDown = (e) => {
     const el = trackRef.current;
     drag.current = { down: true, startX: e.clientX, startScroll: el.scrollLeft, moved: false };
@@ -248,8 +246,9 @@ function Videos({ onOpen }) {
   );
 }
 
-/* ---- Static ads grid (uniform squares) ---- */
-function Statics({ onOpen }) {
+/* ---- Static ads — auto-scrolling carousel (non-interactive) ---- */
+function Statics() {
+  const row = [...STATICS, ...STATICS];
   return (
     <section className="section statics-section" id="statics">
       <div className="wrap">
@@ -258,16 +257,13 @@ function Statics({ onOpen }) {
           <h2>Thumb-stopping statics, at scale.</h2>
           <p>Every placement, every angle. {STATICS.length} of the hundreds we ship each month.</p>
         </div>
-        <div className="static-grid">
-          {STATICS.map((s, i) => (
-            <button key={s.id} className="static-item" onClick={() => onOpen(s, "static")}
-              aria-label={"View " + s.label}>
-              {s.src ? (
-                <img className="static-media" src={s.src} alt={s.label} loading="lazy" />
-              ) : (
-                <Placeholder label={s.label} style={{ position: "absolute", inset: 0 }} />
-              )}
-            </button>
+      </div>
+      <div className="marquee statics-marquee">
+        <div className="marquee-track statics-track">
+          {row.map((s, i) => (
+            <div className="static-cell" key={s.id + "-" + i} aria-hidden={i >= STATICS.length}>
+              <img className="static-media" src={s.src} alt={s.label} loading="lazy" />
+            </div>
           ))}
         </div>
       </div>
