@@ -155,4 +155,55 @@ const FAQS = [
   },
 ];
 
-Object.assign(window, { CLIENTS, STACK, STATS, VIDEOS, STATICS, FAQS, STREAM_SUB });
+const PRICING = [
+  {
+    name: "Starter",
+    perVideo: "$400",
+    unit: "/ video",
+    total: "$2,000 total",
+    highlight: false,
+    badge: "",
+    lead: "5 animation videos + 5 statics",
+    features: [
+      "5 AI animation ad videos",
+      "5 matching static ads",
+      "1 variation each",
+      "Full conceptualization: idea → concept → script → generation → editing",
+      "3 free revisions",
+    ],
+  },
+  {
+    name: "Growth",
+    perVideo: "$380",
+    unit: "/ video",
+    total: "$3,800 total",
+    highlight: true,
+    badge: "Most popular",
+    lead: "10 animation videos",
+    features: [
+      "10 AI animation ad videos",
+      "Matching statics + variations",
+      "Add 2 variations per video for +$20/video",
+      "Full conceptualization: idea → concept → script → generation → editing",
+      "3 free revisions",
+    ],
+  },
+  {
+    name: "Scale",
+    perVideo: "$370",
+    unit: "/ video",
+    total: "$7,400 total",
+    highlight: false,
+    badge: "Best value",
+    lead: "20 animation videos",
+    features: [
+      "20 AI animation ad videos",
+      "Matching statics + variations",
+      "Priority production queue",
+      "Full conceptualization: idea → concept → script → generation → editing",
+      "3 free revisions",
+    ],
+  },
+];
+
+Object.assign(window, { CLIENTS, STACK, STATS, VIDEOS, STATICS, FAQS, PRICING, STREAM_SUB });
