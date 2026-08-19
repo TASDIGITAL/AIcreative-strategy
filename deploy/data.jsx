@@ -44,6 +44,15 @@ const streamPoster = (uid) => "https://" + STREAM_SUB + "/" + uid + "/thumbnails
 
 // Video creatives — vertical 9:16 reels, hosted on Cloudflare Stream.
 const REEL_UIDS = [
+  // --- Newest AI videos (Aug 2026) — featured first ---
+  "6fd3d8ec79b8b2d9288c94b4ee8429bd", // AV2-3 — Myths about bimbo
+  "adfae54b6be839639a1f4e35d01eb821", // Panther In the Room TV11
+  "58689abc8012a65d9ac895a7e0bfa389", // AV52-2 — Founders Story (Animation)
+  "09e1becfe9d0fa2642be2a04cccde422", // AV1 — One less thing to think about
+  "67bfa34ec615e75e1f8284792d16a6ef", // TAS-TV9 — Cost Sub-Angle A
+  "0a1bdb5acc14db579515d7f021903224", // TAS ADS AV60
+  "dcb37948aba12d824654fe89043da4d6", // 6765FC67 — veggie/kale
+  // --- Earlier reels ---
   "d5f1e57043ca048efa9870854da440a5", // AV41 — AI Concept "We do the work"
   "de8e9694fbdfbafdf56a2db95d12ce56", // TV7 — Video Ad AI Concept
   "8d0237ecfc1c83648e554672a380d05d", // TV1
