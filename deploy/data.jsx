@@ -25,13 +25,13 @@ const STATS = [
 
 // AI tech stack — the pipeline behind every creative.
 const STACK = [
-  { name: "ChatGPT 2.0", role: "Image generation", note: "On-brand concepts and product imagery generated and iterated at scale." },
-  { name: "Tria", role: "Analysis", note: "Deep ad and funnel analysis that pinpoints exactly what to test next." },
-  { name: "Kling AI", role: "AI video", note: "Photo-real generative video for scroll-stopping motion ads." },
-  { name: "Claude Cowork Skills", role: "Creative skills", note: "Custom Claude skills that turn a brief into production-ready creative." },
-  { name: "Claude Cowork + n8n", role: "Automation", note: "Cowork agents wired into n8n pipelines — brief to delivery, hands-off." },
-  { name: "Suno", role: "AI audio", note: "Original music and sound beds tailored to every cut." },
-  { name: "Google Flow", role: "AI filmmaking", note: "Cinematic AI scenes and camera work that feel directed, not generated." },
+  { name: "ChatGPT 2.0", role: "Image generation", logo: "openai", note: "On-brand concepts and product imagery, generated and iterated at scale." },
+  { name: "Tria", role: "Analysis", logo: "tria", note: "Deep ad and funnel analysis that pinpoints exactly what to test next." },
+  { name: "Kling AI", role: "AI video", logo: "kling", note: "Photo-real generative video for scroll-stopping motion." },
+  { name: "Claude", role: "Creative agents", logo: "claude", note: "Custom Claude agents that turn a brief into production-ready creative." },
+  { name: "n8n", role: "Automation", logo: "n8n", note: "Pipelines that run brief-to-delivery, hands-off." },
+  { name: "Suno", role: "AI audio", logo: "suno", note: "Original music and sound beds tailored to every cut." },
+  { name: "Google Flow", role: "AI filmmaking", logo: "google", note: "Cinematic AI scenes and camera work that feel directed." },
 ];
 
 // ---- Cloudflare media config ----
@@ -206,4 +206,15 @@ const PRICING = [
   },
 ];
 
-Object.assign(window, { CLIENTS, STACK, STATS, VIDEOS, STATICS, FAQS, PRICING, STREAM_SUB });
+const PROCESS = [
+  { t: "Concept", d: "We prepare the concept and angle." },
+  { t: "Style", d: "We lock the visual style of the video." },
+  { t: "Storyboard", d: "We write the script and storyline." },
+  { t: "Frame check", d: "We edit and check it frame by frame." },
+  { t: "Optimize", d: "We refine every frame." },
+  { t: "Generate", d: "We generate the images, frame by frame." },
+  { t: "Animate", d: "We animate every frame." },
+  { t: "Voice & edit", d: "We add voiceover and final edit." },
+];
+
+Object.assign(window, { CLIENTS, STACK, STATS, VIDEOS, STATICS, FAQS, PRICING, PROCESS, STREAM_SUB });

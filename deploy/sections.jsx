@@ -171,7 +171,6 @@ function Trust() {
     <section className="section" id="reviews">
       <div className="wrap">
         <div className="section-head">
-          <span className="eyebrow center">The receipts</span>
           <h2>Rated for results, not just vibes.</h2>
           <p>Hundreds of five-star reviews across Google, Trustpilot, Clutch, Fiverr &amp; Upwork — from the brands running our creatives every day.</p>
         </div>
@@ -230,7 +229,6 @@ function Videos({ onOpen }) {
     <section className="section work-section" id="work">
       <div className="wrap">
         <div className="section-head">
-          <span className="eyebrow center">Video creatives</span>
           <h2>Scroll-stopping video, built to be tested.</h2>
           <p>UGC hooks, demos and story ads — a fresh batch every week, in every aspect ratio you run.</p>
         </div>
@@ -253,7 +251,6 @@ function Statics() {
     <section className="section statics-section" id="statics">
       <div className="wrap">
         <div className="section-head">
-          <span className="eyebrow center">Static ads</span>
           <h2>Thumb-stopping statics, at scale.</h2>
           <p>Every placement, every angle. {STATICS.length} of the hundreds we ship each month.</p>
         </div>
@@ -277,7 +274,6 @@ function TechStack() {
     <section className="section stack-section" id="stack">
       <div className="wrap">
         <div className="section-head">
-          <span className="eyebrow center">Our AI stack</span>
           <h2>The tech behind every winning creative.</h2>
           <p>A purpose-built AI production pipeline — directed by a senior creative team, end to end.</p>
         </div>
@@ -285,10 +281,38 @@ function TechStack() {
           {STACK.map((s, i) => (
             <Reveal key={s.name} delay={(i % 3) * 80} className="stack-card">
               <span className="stack-step">{String(i + 1).padStart(2, "0")}</span>
+              <img className="stack-logo" src={"assets/logos/" + s.logo + ".svg"} alt={s.name + " logo"} />
               <div className="stack-name">{s.name}</div>
               <span className="stack-role">{s.role}</span>
               <p className="stack-note">{s.note}</p>
             </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---- Process (animated) ---- */
+function Process() {
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setActive((a) => (a + 1) % PROCESS.length), 1500);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <section className="section process-section" id="process">
+      <div className="wrap">
+        <div className="section-head">
+          <h2>How we make every animation ad.</h2>
+          <p>Eight steps from blank page to finished, animated creative — checked frame by frame.</p>
+        </div>
+        <div className="process-flow">
+          {PROCESS.map((p, i) => (
+            <div className={"proc-step" + (i === active ? " active" : "") + (i < active ? " done" : "")} key={i}>
+              <div className="proc-node"><span>{i + 1}</span></div>
+              <div className="proc-label"><strong>{p.t}</strong><span>{p.d}</span></div>
+            </div>
           ))}
         </div>
       </div>
@@ -302,7 +326,6 @@ function Pricing() {
     <section className="section pricing-section" id="pricing">
       <div className="wrap">
         <div className="section-head">
-          <span className="eyebrow center">Pricing</span>
           <h2>AI animation ads, priced to scale.</h2>
           <p>Full concept-to-delivery animation ad production — idea, concept, script, generation and editing — with 3 free revisions on every package.</p>
         </div>
@@ -337,7 +360,6 @@ function FAQ() {
     <section className="section" id="faq">
       <div className="wrap faq-wrap">
         <div className="faq-aside">
-          <span className="eyebrow">FAQ</span>
           <h2>Questions, answered.</h2>
           <p>Still unsure? Book a call and we’ll map your guarantee live.</p>
           <a href="#book" className="btn btn-ghost" style={{ marginTop: 8 }}>Book a call →</a>
@@ -390,4 +412,4 @@ function Footer() {
   );
 }
 
-Object.assign(window, { Logos, Stats, Trust, Videos, Statics, TechStack, Pricing, FAQ, FinalCTA, Footer });
+Object.assign(window, { Logos, Stats, Trust, Videos, Statics, TechStack, Process, Pricing, FAQ, FinalCTA, Footer });
