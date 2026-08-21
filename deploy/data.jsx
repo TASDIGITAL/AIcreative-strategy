@@ -156,10 +156,28 @@ const STATIC_IDS = [
   "aa7ab0d7-50da-4169-0e58-a5d0f2c14c00",
   "751bc292-170f-4b0f-78a2-3153e41cd300",
 ];
+const VERTICAL_IDS = new Set([
+  "321fd30a-6c68-44ce-f13d-8ca5ddaa2d00",
+  "be300544-404a-4bf6-d5c1-7dc9e5e07c00",
+  "3ce0faf8-032a-4d48-06e0-9828df4cd300",
+  "59bd1e6a-2910-41c3-4d49-23cde9b4ad00",
+  "b9c63a1d-abf7-499e-0111-e9db2fe9cb00",
+  "523dc80b-5304-4d56-9d07-dbf0cbd7aa00",
+  "c4c9ea7e-6d60-4a59-8578-6fc3d8b42000",
+  "3ac59650-662e-466e-14d1-4714ac96ea00",
+  "fda4e2f9-e2a5-4258-7f42-11f95ce6cb00",
+  "0782c178-36d2-476f-069d-7443273ca800",
+  "d7c1c2f0-4bc7-417f-987f-ea4ad7d4be00",
+  "3b7731d8-9c18-4da3-8ef5-e6178a252800",
+  "59370c13-a07e-41f6-1a27-ba777a110700",
+  "751bc292-170f-4b0f-78a2-3153e41cd300",
+  "22d51c8b-7cd9-40aa-53b2-01fba8e2e000",
+]);
 const STATICS = STATIC_IDS.map((id, i) => ({
   id: "ad-" + (i + 1),
   label: "static ad " + String(i + 1).padStart(2, "0"),
   src: "https://imagedelivery.net/" + IMG_HASH + "/" + id + "/public",
+  vertical: VERTICAL_IDS.has(id),
 }));
 
 const FAQS = [

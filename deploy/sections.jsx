@@ -258,7 +258,7 @@ function Statics() {
       <div className="marquee statics-marquee">
         <div className="marquee-track statics-track">
           {row.map((s, i) => (
-            <div className="static-cell" key={s.id + "-" + i} aria-hidden={i >= STATICS.length}>
+            <div className={"static-cell" + (s.vertical ? " static-cell--v" : "")} key={s.id + "-" + i} aria-hidden={i >= STATICS.length}>
               <img className="static-media" src={s.src} alt={s.label} loading="lazy" decoding="async" />
             </div>
           ))}
