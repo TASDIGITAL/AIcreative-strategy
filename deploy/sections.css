@@ -281,9 +281,10 @@
 
 /* ---- Static ads: auto-scrolling carousel (non-interactive) ---- */
 .statics-marquee { margin-top: 4px; }
-.statics-track { gap: 16px; animation-duration: 90s; }
-.static-cell { flex: 0 0 auto; position: relative; width: clamp(200px, 22vw, 280px); aspect-ratio: 1 / 1; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); }
-.static-cell .static-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.statics-track { gap: 16px; animation-duration: 120s; align-items: center; }
+/* Fixed height, natural width: squares stay square, verticals stay tall — no cropping. */
+.static-cell { flex: 0 0 auto; position: relative; height: clamp(220px, 27vw, 300px); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); }
+.static-cell .static-media { display: block; height: 100%; width: auto; object-fit: cover; }
 
 
 /* ---------- PRICING ---------- */
