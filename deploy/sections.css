@@ -310,7 +310,8 @@
 
 
 /* ---------- AI STACK LOGOS ---------- */
-.stack-logo { width: 30px; height: 30px; object-fit: contain; display: block; margin-bottom: 16px; opacity: .95; }
+.stack-logo { height: 30px; width: auto; max-width: 150px; object-fit: contain; display: block; margin-bottom: 16px; opacity: .95; }
+.stack-logo--chip { height: 26px; padding: 7px 11px; background: #fff; border-radius: 10px; opacity: 1; }
 
 /* ---------- PROCESS (animated) ---------- */
 .process-section { background: var(--bg); }

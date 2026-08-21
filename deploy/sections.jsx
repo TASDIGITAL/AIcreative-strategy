@@ -281,7 +281,7 @@ function TechStack() {
           {STACK.map((s, i) => (
             <Reveal key={s.name} delay={(i % 3) * 80} className="stack-card">
               <span className="stack-step">{String(i + 1).padStart(2, "0")}</span>
-              <img className="stack-logo" src={"assets/logos/" + s.logo + ".svg"} alt={s.name + " logo"} />
+              <img className={"stack-logo" + (s.logo.endsWith(".png") ? " stack-logo--chip" : "")} src={"assets/logos/" + s.logo} alt={s.name + " logo"} />
               <div className="stack-name">{s.name}</div>
               <span className="stack-role">{s.role}</span>
               <p className="stack-note">{s.note}</p>
