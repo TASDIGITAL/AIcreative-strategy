@@ -182,28 +182,32 @@ const STATICS = STATIC_IDS.map((id, i) => ({
 
 const FAQS = [
   {
-    q: "Why animation ads instead of the usual creatives?",
-    a: "Animation lets you show what live-action can’t — characters, worlds, transformations, before-and-afters — so your ad stops the scroll in a feed full of talking heads. It’s the format opening up fresh reach and new audiences right now, and it carries story and emotion far better than a plain static or demo.",
+    q: "How fast will I get my videos?",
+    a: "We kick off with a quick onboarding meeting. Within 3 days you receive your concept ideas. Once you approve, your first video lands in 3–5 business days — and the rest follow from there.",
   },
   {
-    q: "What exactly do I get?",
-    a: "Finished, ready-to-run animation ad videos plus matching static ads, sized for every placement. You pick the package that fits — 5, 10 or 20 videos — and we take each one from idea to concept, script, generation and editing, with 3 free revisions on every video.",
+    q: "How many revisions do I get?",
+    a: "3 free revisions on every video, so we fine-tune each one until it’s exactly right.",
+  },
+  {
+    q: "How many variations do I get per video?",
+    a: "2 variations per video — different hooks or angles you can test against each other to find what performs.",
+  },
+  {
+    q: "Why animation ads instead of the usual creatives?",
+    a: "Animation lets you show what live-action can’t — characters, worlds, transformations, before-and-afters — so your ad stops the scroll in a feed full of talking heads. It’s the format opening up fresh reach and new audiences right now, and it carries story and emotion far better than a plain demo.",
   },
   {
     q: "Are these really “AI” creatives — or just templates?",
-    a: "Real production powered by AI tooling. We use generative models for ideation, scripting, visuals and variation, then a human creative team directs and polishes every asset. You get the speed of AI with the taste of a senior creative team.",
+    a: "Real production powered by AI tooling. We use generative models for ideation, scripting, visuals and variation, then a human creative team directs and polishes every video. You get the speed of AI with the taste of a senior creative team.",
   },
   {
     q: "What platforms do you create for?",
-    a: "Meta (Facebook & Instagram), TikTok, YouTube and the rest of the usual suspects. We deliver in every aspect ratio and placement so you’re never re-cropping or re-shooting to fit a new channel.",
-  },
-  {
-    q: "How fast can we get started?",
-    a: "Most clients see their first animations inside 7–10 days of the kickoff call. We start with a short concept and script pass, then go straight into production — with 3 free revisions so we land it exactly where you want it.",
+    a: "Meta (Facebook & Instagram), TikTok, YouTube and the rest of the usual suspects. We deliver in every aspect ratio so you’re never re-cropping to fit a new placement.",
   },
   {
     q: "Do I keep the rights to everything?",
-    a: "Yes. Every creative we produce is yours to keep and run wherever you like, forever — no licensing games, no usage caps.",
+    a: "Yes. Every video we produce is yours to keep and run wherever you like, forever — no licensing games, no usage caps.",
   },
 ];
 
@@ -215,12 +219,12 @@ const PRICING = [
     total: "$2,000 total",
     highlight: false,
     badge: "",
-    lead: "5 animation videos + 5 statics",
+    lead: "5 animation videos",
     features: [
       "5 AI animation ad videos",
-      "5 matching static ads",
-      "1 variation each",
-      "Full conceptualization: idea → concept → script → generation → editing",
+      "60–90 sec each",
+      "2 variations per video",
+      "Full concept → script → generation → editing",
       "3 free revisions",
     ],
   },
@@ -234,9 +238,9 @@ const PRICING = [
     lead: "10 animation videos",
     features: [
       "10 AI animation ad videos",
-      "Matching statics + variations",
-      "Add 2 variations per video for +$20/video",
-      "Full conceptualization: idea → concept → script → generation → editing",
+      "60–90 sec each",
+      "2 variations per video",
+      "Full concept → script → generation → editing",
       "3 free revisions",
     ],
   },
@@ -250,9 +254,9 @@ const PRICING = [
     lead: "20 animation videos",
     features: [
       "20 AI animation ad videos",
-      "Matching statics + variations",
+      "60–90 sec each",
+      "2 variations per video",
       "Priority production queue",
-      "Full conceptualization: idea → concept → script → generation → editing",
       "3 free revisions",
     ],
   },

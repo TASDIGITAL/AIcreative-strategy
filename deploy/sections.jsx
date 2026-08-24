@@ -330,9 +330,8 @@ function Comparison() {
     { role: "Scriptwriter", cost: "$250" },
     { role: "Storyboard artist", cost: "$400" },
     { role: "Illustrator / character design", cost: "$800" },
-    { role: "Motion designer / animator", cost: "$1,800" },
-    { role: "Voiceover artist", cost: "$200" },
-    { role: "Editor & sound design", cost: "$350" },
+    { role: "Motion designer / animator", cost: "$500" },
+    { role: "Editor & sound design", cost: "$150" },
   ];
   return (
     <section className="section compare-section" id="compare">
@@ -342,6 +341,7 @@ function Comparison() {
           <p>To make one animated ad the old way, you had to hire a whole crew — and wait weeks. We do it with AI and a senior creative team, for a fraction of the price.</p>
         </div>
         <div className="compare-grid">
+          <div className="compare-vs" aria-hidden="true">VS</div>
           <div className="compare-card old">
             <div className="compare-tag">The old way · one video</div>
             <ul className="compare-list">
@@ -351,7 +351,7 @@ function Comparison() {
             </ul>
             <div className="compare-total">
               <span>Around</span>
-              <strong>$3,800<span className="per">/ video</span></strong>
+              <strong>$2,100<span className="per">/ video</span></strong>
               <span className="compare-time">3–5 weeks · per single video</span>
             </div>
           </div>
@@ -361,7 +361,7 @@ function Comparison() {
               <li><span>Idea, concept &amp; script</span><span className="compare-cost">Included</span></li>
               <li><span>Characters, worlds &amp; motion</span><span className="compare-cost">Included</span></li>
               <li><span>Voiceover &amp; final edit</span><span className="compare-cost">Included</span></li>
-              <li><span>Matching static ad</span><span className="compare-cost">Included</span></li>
+              <li><span>2 variations per video</span><span className="compare-cost">Included</span></li>
               <li><span>3 free revisions</span><span className="compare-cost">Included</span></li>
               <li><span>Senior creative direction</span><span className="compare-cost">Included</span></li>
             </ul>

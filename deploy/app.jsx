@@ -5,7 +5,7 @@
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "heroTreatment": "centered",
   "accent": "#9D7BFF",
-  "headline": "AI animation ads that unlock new audiences.",
+  "headline": "AI animation ads unlock better CPAs and better audiences.",
   "sub": "Scroll-stopping animated ads that tell a story people actually feel — the format winning fresh reach and new audiences right now. Made with AI, directed by a senior creative team.",
   "cta": "Book a call",
   "videoId": "b22cd8378f8eb0293c78ffc7b711c320"
@@ -39,7 +39,6 @@ function App() {
       <Logos />
       <Stats />
       <Videos onOpen={openLb} />
-      <Statics />
       <Trust />
       <TechStack />
       <Process />
