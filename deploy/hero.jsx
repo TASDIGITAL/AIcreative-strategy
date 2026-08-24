@@ -31,7 +31,7 @@ function Nav({ cta }) {
 function GuaranteePill() {
   return (
     <span className="pill">
-      <span className="dot-live" /> Beat your ads — or you don’t pay
+      <span className="dot-live" /> AI animation ads
     </span>);
 
 }
@@ -48,7 +48,7 @@ function HeroTrust({ cta }) {
 }
 
 function Hero({ treatment, headline, sub, cta, videoId }) {
-  const badge = <><span className="dot-live" /> Performance guarantee</>;
+  const badge = <><span className="dot-live" /> AI animation</>;
 
   /* A — Centered classic VSL */
   if (treatment === "centered") {

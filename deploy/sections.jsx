@@ -156,7 +156,11 @@ function ReviewCarousel() {
         onPointerCancel={onUp}
         onClickCapture={(e) => { if (drag.current.moved) { e.preventDefault(); e.stopPropagation(); } }}
       >
-        {REVIEWS.map((r, i) => <ReviewCard key={i} r={r} />)}
+        {[...REVIEWS].sort((a, b) => {
+          const order = ["Gilbert Hasballa", "Kimani Oletu", "Ali Zia", "Luca Bisacchi", "Achilleas Petris", "G. Stouffer", "Alec Brodie"];
+          const ai = order.indexOf(a.name), bi = order.indexOf(b.name);
+          return (ai < 0 ? 99 : ai) - (bi < 0 ? 99 : bi);
+        }).map((r, i) => <ReviewCard key={i} r={r} />)}
       </div>
       <div className="carousel-nav">
         <button className="car-btn" onClick={() => nudge(-1)} aria-label="Previous reviews">←</button>
@@ -229,8 +233,8 @@ function Videos({ onOpen }) {
     <section className="section work-section" id="work">
       <div className="wrap">
         <div className="section-head">
-          <h2>Scroll-stopping video, built to be tested.</h2>
-          <p>UGC hooks, demos and story ads — a fresh batch every week, in every aspect ratio you run.</p>
+          <h2>Animated ads people stop to watch.</h2>
+          <p>Motion, character and story — the ad format unlocking fresh reach and new audiences, in every aspect ratio you run.</p>
         </div>
         <div className="reel-grid">
           {VIDEOS.map((v, i) => (
@@ -251,8 +255,8 @@ function Statics() {
     <section className="section statics-section" id="statics">
       <div className="wrap">
         <div className="section-head">
-          <h2>Thumb-stopping statics, at scale.</h2>
-          <p>Every placement, every angle. {STATICS.length} of the hundreds we ship each month.</p>
+          <h2>Matching statics for every story.</h2>
+          <p>Every placement, every angle — statics that carry the same characters and world as your animation.</p>
         </div>
       </div>
       <div className="marquee statics-marquee">
@@ -321,6 +325,59 @@ function Process() {
 }
 
 /* ---- Pricing ---- */
+function Comparison() {
+  const oldWay = [
+    { role: "Scriptwriter", cost: "$250" },
+    { role: "Storyboard artist", cost: "$400" },
+    { role: "Illustrator / character design", cost: "$800" },
+    { role: "Motion designer / animator", cost: "$1,800" },
+    { role: "Voiceover artist", cost: "$200" },
+    { role: "Editor & sound design", cost: "$350" },
+  ];
+  return (
+    <section className="section compare-section" id="compare">
+      <div className="wrap">
+        <div className="section-head">
+          <h2>Real animation used to cost a fortune.</h2>
+          <p>To make one animated ad the old way, you had to hire a whole crew — and wait weeks. We do it with AI and a senior creative team, for a fraction of the price.</p>
+        </div>
+        <div className="compare-grid">
+          <div className="compare-card old">
+            <div className="compare-tag">The old way · one video</div>
+            <ul className="compare-list">
+              {oldWay.map((o) => (
+                <li key={o.role}><span>{o.role}</span><span className="compare-cost">{o.cost}</span></li>
+              ))}
+            </ul>
+            <div className="compare-total">
+              <span>Around</span>
+              <strong>$3,800<span className="per">/ video</span></strong>
+              <span className="compare-time">3–5 weeks · per single video</span>
+            </div>
+          </div>
+          <div className="compare-card tas">
+            <div className="compare-tag">With TAS · AI animation</div>
+            <ul className="compare-list">
+              <li><span>Idea, concept &amp; script</span><span className="compare-cost">Included</span></li>
+              <li><span>Characters, worlds &amp; motion</span><span className="compare-cost">Included</span></li>
+              <li><span>Voiceover &amp; final edit</span><span className="compare-cost">Included</span></li>
+              <li><span>Matching static ad</span><span className="compare-cost">Included</span></li>
+              <li><span>3 free revisions</span><span className="compare-cost">Included</span></li>
+              <li><span>Senior creative direction</span><span className="compare-cost">Included</span></li>
+            </ul>
+            <div className="compare-total">
+              <span>From</span>
+              <strong>$370<span className="per">/ video</span></strong>
+              <span className="compare-time">Days, not weeks · at scale</span>
+            </div>
+            <a href="#book" className="btn btn-primary compare-cta">Book a call →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Pricing() {
   return (
     <section className="section pricing-section" id="pricing">
@@ -361,7 +418,7 @@ function FAQ() {
       <div className="wrap faq-wrap">
         <div className="faq-aside">
           <h2>Questions, answered.</h2>
-          <p>Still unsure? Book a call and we’ll map your guarantee live.</p>
+          <p>Still unsure? Book a call and we’ll map your first animation concepts live.</p>
           <a href="#book" className="btn btn-ghost" style={{ marginTop: 8 }}>Book a call →</a>
         </div>
         <div className="faq-list">
@@ -387,9 +444,9 @@ function FinalCTA({ cta }) {
       <div className="wrap">
         <div className="cta-box">
           <div className="cta-aura" />
-          <span className="pill"><span className="dot-live" /> Beat your ads — or you don’t pay</span>
-          <h2 className="cta-h">Let’s build ads that beat<br />the ones you’re running now.</h2>
-          <p className="cta-sub">Book a free strategy call. We’ll audit your current creatives and set the exact metric we have to beat — risk-free.</p>
+          <span className="pill"><span className="dot-live" /> AI animation ads</span>
+          <h2 className="cta-h">Let’s make ads your<br />audience remembers.</h2>
+          <p className="cta-sub">Book a free strategy call. We’ll look at your funnel and map the animation concepts that open up your next audience.</p>
           <div className="cta-actions">
             <a href="#" className="btn btn-primary btn-lg">{cta} <span aria-hidden="true">→</span></a>
             <span className="cta-note">30 min · no pitch deck · walk away with a plan</span>
@@ -412,4 +469,4 @@ function Footer() {
   );
 }
 
-Object.assign(window, { Logos, Stats, Trust, Videos, Statics, TechStack, Process, Pricing, FAQ, FinalCTA, Footer });
+Object.assign(window, { Logos, Stats, Trust, Videos, Statics, TechStack, Process, Comparison, Pricing, FAQ, FinalCTA, Footer });

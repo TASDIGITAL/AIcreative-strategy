@@ -182,12 +182,12 @@ const STATICS = STATIC_IDS.map((id, i) => ({
 
 const FAQS = [
   {
-    q: "How does the “beat your ads or you don’t pay” guarantee work?",
-    a: "We build AI-generated creatives and run them head-to-head against your current best performer. If our ads don’t outperform on the metric we agree on up front — usually CTR, CPA or ROAS — you don’t pay for that batch. Simple as that. We define the win condition together before a single ad goes live.",
+    q: "Why animation ads instead of the usual creatives?",
+    a: "Animation lets you show what live-action can’t — characters, worlds, transformations, before-and-afters — so your ad stops the scroll in a feed full of talking heads. It’s the format opening up fresh reach and new audiences right now, and it carries story and emotion far better than a plain static or demo.",
   },
   {
-    q: "What exactly do you deliver each month?",
-    a: "A rolling library of fresh creatives: short-form video reels, UGC-style hooks, and static ads sized for every placement. Volume scales with your plan, but every asset is built to be tested, iterated, and scaled — not just to look pretty in a deck.",
+    q: "What exactly do I get?",
+    a: "Finished, ready-to-run animation ad videos plus matching static ads, sized for every placement. You pick the package that fits — 5, 10 or 20 videos — and we take each one from idea to concept, script, generation and editing, with 3 free revisions on every video.",
   },
   {
     q: "Are these really “AI” creatives — or just templates?",
@@ -199,7 +199,7 @@ const FAQS = [
   },
   {
     q: "How fast can we get started?",
-    a: "Most clients are live with first creatives inside 7–10 days of the kickoff call. We start with a short strategy and asset audit, then go straight into production against your guarantee metric.",
+    a: "Most clients see their first animations inside 7–10 days of the kickoff call. We start with a short concept and script pass, then go straight into production — with 3 free revisions so we land it exactly where you want it.",
   },
   {
     q: "Do I keep the rights to everything?",
