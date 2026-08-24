@@ -462,7 +462,7 @@ function Footer() {
     <footer className="footer">
       <div className="wrap footer-inner">
         <a className="brand" href="#top"><img className="brand-logo" src="assets/logo-white.png" alt="TAS Digital" /></a>
-        <p className="footer-tag">AI creatives that beat your current ads — or you don’t pay.</p>
+        <p className="footer-tag">AI animation ads that unlock new audiences.</p>
         <span className="footer-copy">© {new Date().getFullYear()} TAS Digital</span>
       </div>
     </footer>
