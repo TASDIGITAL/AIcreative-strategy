@@ -229,6 +229,8 @@ function ReelTile({ v, onOpen }) {
 }
 
 function Videos({ onOpen }) {
+  const half = Math.ceil(VIDEOS.length / 2);
+  const rows = [VIDEOS.slice(0, half), VIDEOS.slice(half)];
   return (
     <section className="section work-section" id="work">
       <div className="wrap">
@@ -236,13 +238,17 @@ function Videos({ onOpen }) {
           <h2>Animated ads people stop to watch.</h2>
           <p>Motion, character and story — the ad format unlocking fresh reach and new audiences, in every aspect ratio you run.</p>
         </div>
-        <div className="reel-grid">
-          {VIDEOS.map((v, i) => (
-            <Reveal key={v.id} delay={(i % 5) * 60} className="reel-item">
-              <ReelTile v={v} onOpen={onOpen} />
-            </Reveal>
-          ))}
-        </div>
+      </div>
+      <div className="reel-marquee">
+        {rows.map((row, r) => (
+          <div className={"reel-row " + (r === 0 ? "a" : "b")} key={r}>
+            {[...row, ...row].map((v, i) => (
+              <div className="reel-mq" key={r + "-" + i} aria-hidden={i >= row.length}>
+                <ReelTile v={v} onOpen={onOpen} />
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -370,7 +376,7 @@ function Comparison() {
               <strong>$370<span className="per">/ video</span></strong>
               <span className="compare-time">Days, not weeks · at scale</span>
             </div>
-            <a href="#book" className="btn btn-primary compare-cta">Book a call →</a>
+            <a href="#book" className="btn btn-primary compare-cta">Partner with us →</a>
           </div>
         </div>
       </div>
@@ -400,7 +406,7 @@ function Pricing() {
               <ul className="price-feats">
                 {p.features.map((f, i) => <li key={i}>{f}</li>)}
               </ul>
-              <a href="#book" className="btn btn-primary price-cta">Book a call →</a>
+              <a href="#book" className="btn btn-primary price-cta">Partner with us →</a>
             </div>
           ))}
         </div>
@@ -463,7 +469,12 @@ function Footer() {
       <div className="wrap footer-inner">
         <a className="brand" href="#top"><img className="brand-logo" src="assets/logo-white.png" alt="TAS Digital" /></a>
         <p className="footer-tag">AI animation ads that unlock new audiences.</p>
-        <span className="footer-copy">© {new Date().getFullYear()} TAS Digital</span>
+        <div className="footer-right">
+          <a className="footer-social" href="https://www.instagram.com/tasdigital/" target="_blank" rel="noopener noreferrer" aria-label="TAS Digital on Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" /></svg>
+          </a>
+          <span className="footer-copy">© {new Date().getFullYear()} TAS Digital</span>
+        </div>
       </div>
     </footer>
   );
