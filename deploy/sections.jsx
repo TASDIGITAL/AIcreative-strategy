@@ -449,10 +449,16 @@ function FinalCTA({ cta }) {
           <span className="pill"><span className="dot-live" /> AI animation ads</span>
           <h2 className="cta-h">Let’s make ads your<br />audience remembers.</h2>
           <p className="cta-sub">Book a free strategy call. We’ll look at your funnel and map the animation concepts that open up your next audience.</p>
-          <div className="cta-actions">
-            <a href="#" className="btn btn-primary btn-lg">{cta} <span aria-hidden="true">→</span></a>
-            <span className="cta-note">30 min · no pitch deck · walk away with a plan</span>
+          <div className="cta-cal">
+            <iframe
+              src="https://api.leadconnector.com/widget/booking/xLLOotTNuy3Hkhfg6Oi0?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives"
+              style={{ width: "100%", minHeight: "700px", border: "none", borderRadius: "16px", background: "#fff", overflow: "hidden" }}
+              scrolling="no"
+              id="xLLOotTNuy3Hkhfg6Oi0_ai_lp"
+              title="Book a strategy call with TAS Digital"
+            ></iframe>
           </div>
+          <span className="cta-note" style={{ display: "block", marginTop: 14 }}>30 min · no pitch deck · walk away with a plan</span>
         </div>
       </div>
     </section>
