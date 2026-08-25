@@ -4,19 +4,15 @@
 
 /* ---- Client logos marquee ---- */
 function Logos() {
-  const row = [...CLIENTS, ...CLIENTS];
   return (
     <section className="logos-band" aria-label="Brands we work with">
       <div className="wrap">
         <p className="logos-kicker">Trusted by performance teams at 200+ brands</p>
       </div>
-      <div className="marquee">
-        <div className="marquee-track">
-          {row.map((name, i) => (
-            <div className="logo-cell" key={i}>
-              <span className="logo-ph">{name}</span>
-            </div>
-          ))}
+      <div className="logos-strip-mq">
+        <div className="logos-strip-track">
+          <img className="logos-strip" src="assets/clients-strip.png" alt="Client logos" />
+          <img className="logos-strip" src="assets/clients-strip.png" alt="" aria-hidden="true" />
         </div>
       </div>
     </section>
