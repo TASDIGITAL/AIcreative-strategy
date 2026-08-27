@@ -449,16 +449,10 @@ function FinalCTA({ cta }) {
           <span className="pill"><span className="dot-live" /> AI animation ads</span>
           <h2 className="cta-h">Let’s make ads your<br />audience remembers.</h2>
           <p className="cta-sub">Book a free strategy call. We’ll look at your funnel and map the animation concepts that open up your next audience.</p>
-          <div className="cta-cal">
-            <iframe
-              src="https://api.leadconnector.com/widget/booking/xLLOotTNuy3Hkhfg6Oi0?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives"
-              style={{ width: "100%", minHeight: "700px", border: "none", borderRadius: "16px", background: "#fff", overflow: "hidden" }}
-              scrolling="no"
-              id="xLLOotTNuy3Hkhfg6Oi0_ai_lp"
-              title="Book a strategy call with TAS Digital"
-            ></iframe>
+          <div className="cta-actions">
+            <a href="https://api.leadconnector.com/widget/booking/xLLOotTNuy3Hkhfg6Oi0?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">{cta} <span aria-hidden="true">→</span></a>
+            <span className="cta-note">30 min · no pitch deck · walk away with a plan</span>
           </div>
-          <span className="cta-note" style={{ display: "block", marginTop: 14 }}>30 min · no pitch deck · walk away with a plan</span>
         </div>
       </div>
     </section>
@@ -482,4 +476,64 @@ function Footer() {
   );
 }
 
-Object.assign(window, { Logos, Stats, Trust, Videos, Statics, TechStack, Process, Comparison, Pricing, FAQ, FinalCTA, Footer });
+/* ---- Review platform badges ---- */
+function Reviews() {
+  const badges = [
+    {
+      name: "Trustpilot",
+      href: "https://www.trustpilot.com/review/tas-digital.com",
+      ico: (
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00B67A" d="M17.227 16.67l2.19 6.742-7.413-5.388 5.223-1.354zM24 9.31h-9.165L12.005.589l-2.84 8.723L0 9.3l7.422 5.397-2.84 8.714 7.422-5.388 4.583-3.326L24 9.311z" /></svg>
+      ),
+    },
+    {
+      name: "Google",
+      href: "https://www.google.com/search?sca_esv=600194805&hl=en-GB&authuser=0&tbm=lcl&q=TAS+Digital+Reviews&rflfq=1&num=20&rldimm=8934839716947509311&sa=X#lkt=LocalPoiReviews",
+      ico: (
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+        </svg>
+      ),
+    },
+    {
+      name: "Clutch",
+      href: "https://clutch.co/profile/tas-digital-0",
+      nameStyle: { color: "#FF3D2E" },
+    },
+    {
+      name: "Fiverr Pro",
+      href: "https://www.fiverr.com/agencies/tasdigital",
+      ico: (
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1DBF73" d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z" /></svg>
+      ),
+    },
+    {
+      name: "Upwork",
+      href: "https://www.upwork.com/freelancers/ecommgrowth?mp_source=share",
+      ico: (
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#6FDA44" d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" /></svg>
+      ),
+    },
+  ];
+  return (
+    <section className="reviews-band" aria-label="Client reviews">
+      <div className="wrap">
+        <p className="reviews-kicker">Rated by our clients on</p>
+        <div className="reviews-row">
+          {badges.map((b) => (
+            <a key={b.name} className="rev-badge" href={b.href} target="_blank" rel="noopener noreferrer">
+              {b.ico ? <span className="rev-ico">{b.ico}</span> : null}
+              <span className="rev-name" style={b.nameStyle || null}>{b.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, { Logos, Stats, Trust, Reviews, Videos, Statics, TechStack, Process, Comparison, Pricing, FAQ, FinalCTA, Footer });
+
