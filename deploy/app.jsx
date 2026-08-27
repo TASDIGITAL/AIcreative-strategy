@@ -40,7 +40,6 @@ function App() {
       <Stats />
       <Videos onOpen={openLb} />
       <Trust />
-      <Reviews />
       <TechStack />
       <Process />
       <Comparison />
