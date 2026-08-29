@@ -465,8 +465,7 @@ function FinalCTA({ cta }) {
       <div className="wrap">
         <div className="cta-box">
           <div className="cta-aura" />
-          <span className="pill"><span className="dot-live" /> AI animation ads</span>
-          <h2 className="cta-h">Let’s make ads your<br />audience remembers.</h2>
+          <h2 className="cta-h">Let’s make AI ads convert.</h2>
           <p className="cta-sub">Book a free strategy call. We’ll look at your funnel and map the animation concepts that open up your next audience.</p>
           <div className="cta-actions">
             <a href="https://api.leadconnector.com/widget/booking/xLLOotTNuy3Hkhfg6Oi0?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">{cta} <span aria-hidden="true">→</span></a>
