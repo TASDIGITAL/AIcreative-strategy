@@ -45,6 +45,7 @@ const streamPoster = (uid) => "https://" + STREAM_SUB + "/" + uid + "/thumbnails
 // Video creatives — vertical 9:16 reels, hosted on Cloudflare Stream.
 const REEL_UIDS = [
   // --- Newest AI videos (Aug 2026) — featured first ---
+  "a36c3785e1eab8f7fdcf38896baefa5c", // AV75-B25-C32 (AI)
   "578c1de2015dae85fe443ce88d8d03ef", // TV10 — A $1000 Mistake (podcast module)
   "c5f599fbdff2afb167eecdb412f3a7d1", // AV51 — Don't be like Marcus (claymation)
   "e003c42af6434be271593f19657bfc0d", // TV03 — No more guesswork (AI UGC)
@@ -53,6 +54,7 @@ const REEL_UIDS = [
   "adfae54b6be839639a1f4e35d01eb821", // Panther In the Room TV11
   "58689abc8012a65d9ac895a7e0bfa389", // AV52-2 — Founders Story (Animation)
   "09e1becfe9d0fa2642be2a04cccde422", // AV1 — One less thing to think about
+  "aa50d5e2123acc62071c74582ea868ac", // AV74-B25-C32 (AI)
   "67bfa34ec615e75e1f8284792d16a6ef", // TAS-TV9 — Cost Sub-Angle A
   "0a1bdb5acc14db579515d7f021903224", // TAS ADS AV60
   "dcb37948aba12d824654fe89043da4d6", // 6765FC67 — veggie/kale
