@@ -391,7 +391,7 @@ function Comparison() {
               <strong>$370<span className="per">/ video</span></strong>
               <span className="compare-time">Days, not weeks · at scale</span>
             </div>
-            <a href="#book" className="btn btn-primary compare-cta">Partner with us →</a>
+            <a href="https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-primary compare-cta">Partner with us →</a>
           </div>
         </div>
       </div>
@@ -421,7 +421,7 @@ function Pricing() {
               <ul className="price-feats">
                 {p.features.map((f, i) => <li key={i}>{f}</li>)}
               </ul>
-              <a href="#book" className="btn btn-primary price-cta">Partner with us →</a>
+              <a href="https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-primary price-cta">Partner with us →</a>
             </div>
           ))}
         </div>
@@ -440,7 +440,7 @@ function FAQ() {
         <div className="faq-aside">
           <h2>Questions, answered.</h2>
           <p>Still unsure? Book a call and we’ll map your first animation concepts live.</p>
-          <a href="#book" className="btn btn-ghost" style={{ marginTop: 8 }}>Book a call →</a>
+          <a href="https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ marginTop: 8 }}>Book a call →</a>
         </div>
         <div className="faq-list">
           {FAQS.map((f, i) => (
@@ -468,7 +468,7 @@ function FinalCTA({ cta }) {
           <h2 className="cta-h">Let’s make AI ads that convert.</h2>
           <p className="cta-sub">Book a free strategy call. We’ll look at your funnel and map the animation ideas that open up your next audience.</p>
           <div className="cta-actions">
-            <a href="https://api.leadconnector.com/widget/booking/xLLOotTNuy3Hkhfg6Oi0?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">{cta} <span aria-hidden="true">→</span></a>
+            <a href="https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">{cta} <span aria-hidden="true">→</span></a>
             <span className="cta-note">30 min · no pitch deck · walk away with a plan</span>
           </div>
         </div>

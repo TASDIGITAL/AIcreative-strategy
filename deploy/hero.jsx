@@ -20,7 +20,7 @@ function Nav({ cta }) {
           <a className="nav-link" href="#stack">AI stack</a>
           <a className="nav-link" href="#reviews">Reviews</a>
           <a className="nav-link" href="#faq">FAQ</a>
-          <a className="btn btn-primary" style={{ padding: "12px 22px", fontSize: 15 }} href="#book">{cta}</a>
+          <a className="btn btn-primary" style={{ padding: "12px 22px", fontSize: 15 }} href="https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer">{cta}</a>
         </div>
       </div>
     </nav>);
@@ -38,7 +38,7 @@ function GuaranteePill() {
 function HeroTrust({ cta }) {
   return (
     <div className="hero-cta-row">
-      <a href="#book" className="btn btn-primary btn-lg">{cta} <span aria-hidden="true">→</span></a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">{cta} <span aria-hidden="true">→</span></a>
       <div className="hero-micro">
         <Stars size={15} />
         <span><strong>4.9/5</strong> from 200+ brands · no lock-in contracts</span>
