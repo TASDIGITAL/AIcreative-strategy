@@ -240,6 +240,10 @@
 .stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 @media (max-width: 880px) { .stack-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .stack-grid { grid-template-columns: 1fr; } }
+.stack-marquee { margin-top: 26px; }
+.stack-track { animation-duration: 82s; }
+.stack-track .stack-card { flex: 0 0 auto; width: clamp(260px, 24vw, 320px); }
+@media (max-width: 560px) { .stack-track .stack-card { width: 80vw; } }
 .stack-card {
   position: relative; overflow: hidden;
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);

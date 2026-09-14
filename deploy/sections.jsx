@@ -302,15 +302,17 @@ function TechStack() {
           <h2>The tech behind every winning creative.</h2>
           <p>A purpose-built AI production pipeline — directed by a senior creative team, end to end.</p>
         </div>
-        <div className="stack-grid">
-          {STACK.map((s, i) => (
-            <Reveal key={s.name} delay={(i % 3) * 80} className="stack-card">
-              <span className="stack-step">{String(i + 1).padStart(2, "0")}</span>
+      </div>
+      <div className="stack-marquee marquee">
+        <div className="marquee-track stack-track">
+          {STACK.concat(STACK).map((s, i) => (
+            <div key={i} className="stack-card">
+              <span className="stack-step">{String((i % STACK.length) + 1).padStart(2, "0")}</span>
               <img className={"stack-logo" + (s.logo.endsWith(".png") ? " stack-logo--chip" : "")} src={"assets/logos/" + s.logo} alt={s.name + " logo"} />
               <div className="stack-name">{s.name}</div>
               <span className="stack-role">{s.role}</span>
               <p className="stack-note">{s.note}</p>
-            </Reveal>
+            </div>
           ))}
         </div>
       </div>
