@@ -288,6 +288,11 @@
 .cta-sub { color: var(--ink-soft); font-size: clamp(16px, 1.5vw, 20px); max-width: 580px; margin-top: 20px; }
 .cta-actions { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 34px; }
 .cta-note { font-size: 13.5px; color: var(--ink-mute); }
+.soft-cta { display: inline-block; margin-top: 16px; color: var(--ink-soft); font-size: 14.5px; font-weight: 600; text-decoration: none; border-bottom: 1px solid color-mix(in oklab, var(--accent) 42%, transparent); padding-bottom: 2px; transition: color .18s, border-color .18s; }
+.soft-cta:hover { color: var(--accent); border-color: var(--accent); }
+.soft-cta span { display: inline-block; transition: transform .18s; }
+.soft-cta:hover span { transform: translateX(3px); }
+.hero-centered .soft-cta, .hero-statement .soft-cta { }
 
 /* ---------- FOOTER ---------- */
 .footer { border-top: 1px solid var(--line-soft); padding: 40px 0; background: var(--bg-2); }
