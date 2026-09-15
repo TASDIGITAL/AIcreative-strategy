@@ -41,7 +41,7 @@ function HeroTrust({ cta }) {
         <span><strong>4.9/5</strong> from 200+ brands · no lock-in contracts</span>
       </div>
     </div>
-    <a className="soft-cta" href="https://resources.tas-digital.ai?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives_playbook" target="_blank" rel="noopener noreferrer">Not ready to talk yet? Get the free growth playbook <span aria-hidden="true">→</span></a>
+    <a className="soft-cta" href="https://creative.tas-digital.ai?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives_playbook" target="_blank" rel="noopener noreferrer">Not ready to talk yet? Get the free Creative Playbook <span aria-hidden="true">→</span></a>
     </>);
 
 }
