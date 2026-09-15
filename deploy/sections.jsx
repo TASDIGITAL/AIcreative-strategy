@@ -349,52 +349,63 @@ function Process() {
 
 /* ---- Pricing ---- */
 function Comparison() {
-  const oldWay = [
-    { role: "Scriptwriter", cost: "$250" },
-    { role: "Storyboard artist", cost: "$400" },
-    { role: "Illustrator / character design", cost: "$800" },
-    { role: "Motion designer / animator", cost: "$500" },
-    { role: "Editor & sound design", cost: "$150" },
+  const cols = [
+    {
+      cls: "diy", good: false, tag: "Doing it yourself",
+      points: [
+        "You learn a dozen AI apps instead of running your business",
+        "Endless trial and error — hours gone on every clip",
+        "Credits burned testing what does and doesn’t work",
+        "No system for what’s actually winning",
+        "Your focus leaves the product you’re meant to grow",
+      ],
+    },
+    {
+      cls: "editor", good: false, tag: "Hiring a video editor",
+      points: [
+        "They can generate clips — but not the story",
+        "Weak on scripting and concept ideation",
+        "No system for what’s winning and what isn’t",
+        "You still write the scripts and hand over the ideas",
+        "Editing only — the thinking stays on your plate",
+      ],
+    },
+    {
+      cls: "tas", good: true, tag: "Working with TAS",
+      points: [
+        "Ideas, concepts & scripting — handled by us",
+        "Characters, worlds & emotion — built for you",
+        "Voiceovers, editing & final delivery — done",
+        "Senior creative direction on every ad",
+        "A system that tracks what’s winning and scales it",
+        "You stay on your product; we run the creative",
+      ],
+    },
   ];
   return (
     <section className="section compare-section" id="compare">
       <div className="wrap">
         <div className="section-head">
-          <h2>Real animation used to cost a fortune.</h2>
-          <p>To make one animated ad the old way, you had to hire a whole crew — and wait weeks. We do it with AI and a senior creative team, for a fraction of the price.</p>
+          <h2>Three ways to make your ads. Only one keeps you focused.</h2>
+          <p>Doing it yourself or handing clips to an editor still leaves the hardest part — the ideas, the story, the system — on you. We take the whole creative off your plate.</p>
         </div>
-        <div className="compare-grid">
-          <div className="compare-vs" aria-hidden="true">VS</div>
-          <div className="compare-card old">
-            <div className="compare-tag">The old way · one video</div>
-            <ul className="compare-list">
-              {oldWay.map((o) => (
-                <li key={o.role}><span>{o.role}</span><span className="compare-cost">{o.cost}</span></li>
-              ))}
-            </ul>
-            <div className="compare-total">
-              <span>Around</span>
-              <strong>$2,100<span className="per">/ video</span></strong>
-              <span className="compare-time">3–5 weeks · per single video</span>
+        <div className="compare-grid three">
+          {cols.map((c) => (
+            <div className={"compare-card " + c.cls + (c.good ? " tas" : "")} key={c.tag}>
+              <div className="compare-tag">{c.tag}</div>
+              <ul className="compare-list">
+                {c.points.map((p, i) => (
+                  <li key={i} className={c.good ? "yes" : "no"}>
+                    <span className="compare-ic" aria-hidden="true">{c.good ? "✓" : "✕"}</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+              {c.good ? (
+                <a href="https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-primary compare-cta">Partner with us →</a>
+              ) : null}
             </div>
-          </div>
-          <div className="compare-card tas">
-            <div className="compare-tag">With TAS · AI animation</div>
-            <ul className="compare-list">
-              <li><span>Idea, concept &amp; script</span><span className="compare-cost">Included</span></li>
-              <li><span>Characters, worlds &amp; motion</span><span className="compare-cost">Included</span></li>
-              <li><span>Voiceover &amp; final edit</span><span className="compare-cost">Included</span></li>
-              <li><span>2 variations per video</span><span className="compare-cost">Included</span></li>
-              <li><span>3 free revisions</span><span className="compare-cost">Included</span></li>
-              <li><span>Senior creative direction</span><span className="compare-cost">Included</span></li>
-            </ul>
-            <div className="compare-total">
-              <span>From</span>
-              <strong>$370<span className="per">/ video</span></strong>
-              <span className="compare-time">Days, not weeks · at scale</span>
-            </div>
-            <a href="https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-primary compare-cta">Partner with us →</a>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -406,7 +417,7 @@ function Pricing() {
     <section className="section pricing-section" id="pricing">
       <div className="wrap">
         <div className="section-head">
-          <h2>AI animation ads, priced to scale.</h2>
+          <h2>AI animation ads, built to scale.</h2>
           <p>Full concept-to-delivery animation ad production — idea, concept, script, generation and editing — with 3 free revisions on every package.</p>
         </div>
         <div className="pricing-grid">
@@ -415,11 +426,6 @@ function Pricing() {
               {p.badge ? <span className="price-badge">{p.badge}</span> : null}
               <div className="price-name">{p.name}</div>
               <p className="price-lead">{p.lead}</p>
-              <div className="price-amount">
-                <span className="num">{p.perVideo}</span>
-                <span className="unit">{p.unit}</span>
-              </div>
-              <div className="price-total">{p.total}</div>
               <ul className="price-feats">
                 {p.features.map((f, i) => <li key={i}>{f}</li>)}
               </ul>
@@ -427,7 +433,7 @@ function Pricing() {
             </div>
           ))}
         </div>
-        <p className="price-note">Every package includes full conceptualization + 3 free revisions. Prices are per video; add 2 variations per video on any package.</p>
+        <p className="price-note">Every package includes full conceptualization, 2 variations per video, and 3 free revisions. Book a call and we’ll size the right volume for your goals.</p>
       </div>
     </section>
   );

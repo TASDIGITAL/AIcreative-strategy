@@ -256,7 +256,7 @@ const PRICING = [
     unit: "/ video",
     total: "$7,400 total",
     highlight: false,
-    badge: "Best value",
+    badge: "Best for volume",
     lead: "20 animation videos",
     features: [
       "20 AI animation ad videos",
