@@ -74,15 +74,15 @@ const REVIEWS = [
   { name: "Blackout Coffee Co.", role: "DTC coffee brand", platform: "Google", text: "Talal and his team give their all to make you a happy customer. Been a customer for over a year and our sales have grown from $50k to $600k a month. Great people that know what they are doing." },
   { name: "Hannah Hoskins", role: "Founder", platform: "Google", text: "The proof is completely in my sales. They’ve managed to get 6 times the amount spent on ads, massively increasing my revenue. I can’t actually keep stock in long enough at the moment!" },
   { name: "Luke Miller", role: "DTC brand owner", platform: "Trustpilot", text: "After going through 4 agencies over 4 years we have finally found a long-term partner for our paid ads and creative. Communication is the best I’ve ever experienced and our sales have increased substantially since partnering with them." },
-  { name: "Ilkka Mattila", role: "Performance marketing client", platform: "Trustpilot", text: "Ad production, concept creation, and media buying under one roof was exactly what we were missing. TAS is not just an agency — it’s a process-driven growth partner with genuine out-of-the-box thinking." },
+  { name: "Ilkka Mattila", role: "Performance marketing client", platform: "Trustpilot", text: "Ad production, concept creation, and media buying under one roof was exactly what we were missing. TAS is not just an agency, it’s a process-driven growth partner with genuine out-of-the-box thinking." },
   { name: "Patrik Šulla", role: "Business owner", platform: "Google", text: "An absolute game-changer. They’ve taken our Facebook campaigns to the next level, helping us double our sales and giving us space to focus on growing our company. One of our best decisions." },
   { name: "Achilleas Petris", role: "Gratsi Wine", platform: "Google", text: "They’ve done a great job executing our ad concepts, iterating quickly based on performance, and incorporating feedback across both static and UGC video ads. The process feels smooth." },
   { name: "Ali Zia", role: "Mattress Central", platform: "Trustpilot", text: "High-quality creative content and ad campaigns focused on driving real ROI rather than just generating traffic. We’ve seen significant improvements in our ad performance, customer engagement, and overall creative output." },
   { name: "Luca Bisacchi", role: "Agency partner", platform: "Trustpilot", text: "We’ve scaled an account’s ad spend to $70k per month while generating 40+ creative ads monthly. Their expertise in creating engaging, effective ads has been crucial to our success." },
   { name: "G. Stouffer", role: "Ecommerce founder", platform: "Trustpilot", text: "Before TAS Digital, our ad account was a messy headache. Now it’s a finely-tuned revenue engine. They built a complete, cogent creative strategy focused on the customer experience that now drives the bulk of our revenue. A partner that focuses relentlessly on revenue and strategic growth." },
   { name: "Alec Brodie", role: "Creative lead", platform: "Trustpilot", text: "An essential video partner, especially in producing high-performing UGC content. Their ability to consistently deliver a high volume of creatives keeps our creative flywheel moving." },
-  { name: "Ronen Chen", role: "Brand owner", platform: "Google", text: "We started 2 months ago and I’m already so impressed — I really feel I’m in good hands. Talal is super professional and his team is so eager to succeed. The results are coming in." },
-  { name: "James Griffin", role: "DTC founder", platform: "Trustpilot", text: "They’re not just an advertising company — they feel like part of our team and consistently go above and beyond to help us grow. A truly symbiotic relationship." },
+  { name: "Ronen Chen", role: "Brand owner", platform: "Google", text: "We started 2 months ago and I’m already so impressed, I really feel I’m in good hands. Talal is super professional and his team is so eager to succeed. The results are coming in." },
+  { name: "James Griffin", role: "DTC founder", platform: "Trustpilot", text: "They’re not just an advertising company, they feel like part of our team and consistently go above and beyond to help us grow. A truly symbiotic relationship." },
   { name: "Gilbert Hasballa", role: "Marketing lead", platform: "Trustpilot", text: "Amazing for our ad creative! They helped us sharpen our strategy and we quickly saw a 30% lift in engagement and higher conversions. Knowledgeable, easy to work with, and truly cares about getting results." },
   { name: "Verified Client", role: "via Clutch", platform: "Clutch", text: "What truly sets TAS Digital apart is their teamwork and well-structured approach. They delivered rapid results within a month and improved ad performance significantly." },
   { name: "Kimani Oletu", role: "Brand owner", platform: "Google", text: "Working with TAS Digital has been a fantastic experience. They are a highly organized agency and have done an excellent job creating new and innovative video creative for our ads in the international market. Highly recommend them!" },
@@ -92,19 +92,19 @@ const REVIEWS = [
   { name: "Ali Essaidi", role: "CEO, marketing management co.", platform: "Clutch", text: "TAS Digital’s organized and structured approach is impressive. We’ve seen an improvement in our conversion rates and cost per lead, and the team consistently delivers on time and proactively communicates." },
   { name: "Tue Rasmussen", role: "Business owner", platform: "Google", text: "Excellent agency. Would recommend in regards to Meta and Google PPC." },
   { name: "Ishat Kalra", role: "Ecommerce lead", platform: "Google", text: "Best advertising company. Helped a lot with creatives. Highly recommended." },
-  { name: "Majd Almaamoun", role: "Brand owner", platform: "Google", text: "TAS Digital is consistently helping us with Meta Ads, Google Ads and funnel strategies. The team is patient and experienced — after we implemented their strategies, we saw a big difference in our results." },
-  { name: "Chiara Barbara Madeddu", role: "Marketing lead", platform: "Google", text: "Our weekly advertising consultations with TAS Digital are insightful — the team is always helping with strategy, creative ideas, targeting, and sometimes they go deep into landing page optimisations as well." },
-  { name: "Mathieu Minne", role: "Brand owner", platform: "Google", text: "We are working with TAS for months now — they are passionate with what they do, and they understand clearly how to create advertising strategies with Meta ads and Google Ads." },
-  { name: "marisa pesce", role: "Ecommerce owner", platform: "Google", text: "Great team and great harmony between all advertising channels — they run our Meta and Google ads with consistent designs and results." },
-  { name: "Badr G", role: "Brand owner", platform: "Google", text: "Things are going really well — the stats have noticeably improved since we started collaborating. Click-throughs and conversions are all looking much better. Your strategy and adjustments are clearly paying off." },
-  { name: "Lisa Larina", role: "Ecommerce brand", platform: "Google", text: "We are having an excellent experience working with TAS Digital on the strategic execution of Meta ads for our ecommerce brand. Their expertise and approach led to outstanding results — significantly increased traffic, conversions, and sales." },
+  { name: "Majd Almaamoun", role: "Brand owner", platform: "Google", text: "TAS Digital is consistently helping us with Meta Ads, Google Ads and funnel strategies. The team is patient and experienced, after we implemented their strategies, we saw a big difference in our results." },
+  { name: "Chiara Barbara Madeddu", role: "Marketing lead", platform: "Google", text: "Our weekly advertising consultations with TAS Digital are insightful, the team is always helping with strategy, creative ideas, targeting, and sometimes they go deep into landing page optimisations as well." },
+  { name: "Mathieu Minne", role: "Brand owner", platform: "Google", text: "We are working with TAS for months now, they are passionate with what they do, and they understand clearly how to create advertising strategies with Meta ads and Google Ads." },
+  { name: "marisa pesce", role: "Ecommerce owner", platform: "Google", text: "Great team and great harmony between all advertising channels, they run our Meta and Google ads with consistent designs and results." },
+  { name: "Badr G", role: "Brand owner", platform: "Google", text: "Things are going really well, the stats have noticeably improved since we started collaborating. Click-throughs and conversions are all looking much better. Your strategy and adjustments are clearly paying off." },
+  { name: "Lisa Larina", role: "Ecommerce brand", platform: "Google", text: "We are having an excellent experience working with TAS Digital on the strategic execution of Meta ads for our ecommerce brand. Their expertise and approach led to outstanding results, significantly increased traffic, conversions, and sales." },
   { name: "Besho Adel", role: "Ecommerce founder", platform: "Google", text: "TAS Digital agency is fantastic to work with. The team is professional and diverse, with members working remotely from all over the world. Their expertise in e-commerce growth is impressive." },
   { name: "Mónica", role: "Agency partner", platform: "Google", text: "We’ve found a valuable partner who plays a crucial role in helping us deliver exceptional digital advertising services to our clients. Their expertise and collaborative approach have been pivotal." },
   { name: "Almond Hair", role: "Ecommerce brand", platform: "Google", text: "A professional, disciplined and successful team. Everything is planned and programmed. After we started working with this team, we experienced significant increases in our sales. Quality teammates, all experts in their fields." },
   { name: "Ali G", role: "Founder, Leading Care", platform: "Clutch", text: "They are good in every sense. TAS Digital’s campaigns have increased our profitability. The team is professional and delivers work on time, according to schedule." },
   { name: "Anonymous", role: "Owner, e-commerce company", platform: "Clutch", text: "In a sea of non-performing digital agencies, it is great to work with nice people who deliver what they promise. Their work has resulted in positive ROAS and boosted our profits." },
   { name: "Billie Florsheim", role: "Fashion brand", platform: "Clutch", text: "I’m happy with their work. The team’s project management approach was perfect, and they delivered great results managing our ads across our Google and Meta accounts." },
-  { name: "Filipe Santos", role: "CMO, digital platform", platform: "Google", text: "TAS Digital completely exceeded my expectations — they feel more like a partner than just another agency. In less than a month they proved they could deliver results: from managing my digital ads to developing creative strategy, research and targeting, they’ve been very pro!" },
+  { name: "Filipe Santos", role: "CMO, digital platform", platform: "Google", text: "TAS Digital completely exceeded my expectations, they feel more like a partner than just another agency. In less than a month they proved they could deliver results: from managing my digital ads to developing creative strategy, research and targeting, they’ve been very pro!" },
   { name: "FWD Social", role: "Agency", platform: "Google", text: "Expertly and thoroughly done from start to finish. Excellent job, definitely recommend!" },
   { name: "joeseiky", role: "via Fiverr", platform: "Fiverr", text: "These guys have the right team and system for creative strategy. They know what they’re doing. If you run D2C and need creatives, this team is for you." },
   { name: "Verified Client", role: "via Upwork", platform: "Upwork", text: "Exceptional work in creatives and UGC management, coming up with innovative concepts that truly elevated our project. Communication was seamless and enjoyable." },
@@ -191,7 +191,7 @@ function Trust() {
       <div className="wrap">
         <div className="section-head">
           <h2>Rated for results, not just vibes.</h2>
-          <p>Hundreds of five-star reviews across Google, Trustpilot, Clutch, Fiverr &amp; Upwork — from the brands running our creatives every day.</p>
+          <p>Hundreds of five-star reviews across Google, Trustpilot, Clutch, Fiverr &amp; Upwork, from the brands running our creatives every day.</p>
         </div>
 
         <div className="trust-grid">
@@ -251,7 +251,7 @@ function Videos({ onOpen }) {
       <div className="wrap">
         <div className="section-head">
           <h2>Animated ads people stop to watch.</h2>
-          <p>Motion, character and story — the ad format unlocking fresh reach and new audiences, in every aspect ratio you run.</p>
+          <p>Motion, character and story, the ad format unlocking fresh reach and new audiences, in every aspect ratio you run.</p>
         </div>
       </div>
       <div className="reel-marquee">
@@ -277,7 +277,7 @@ function Statics() {
       <div className="wrap">
         <div className="section-head">
           <h2>Matching statics for every story.</h2>
-          <p>Every placement, every angle — statics that carry the same characters and world as your animation.</p>
+          <p>Every placement, every angle, statics that carry the same characters and world as your animation.</p>
         </div>
       </div>
       <div className="marquee statics-marquee">
@@ -300,7 +300,7 @@ function TechStack() {
       <div className="wrap">
         <div className="section-head">
           <h2>The tech behind every winning creative.</h2>
-          <p>A purpose-built AI production pipeline — directed by a senior creative team, end to end.</p>
+          <p>A purpose-built AI production pipeline, directed by a senior creative team, end to end.</p>
         </div>
       </div>
       <div className="stack-marquee marquee">
@@ -332,7 +332,7 @@ function Process() {
       <div className="wrap">
         <div className="section-head">
           <h2>How we make every animation ad.</h2>
-          <p>Eight steps from blank page to finished, animated creative — checked frame by frame.</p>
+          <p>Eight steps from blank page to finished, animated creative, checked frame by frame.</p>
         </div>
         <div className="process-flow">
           {PROCESS.map((p, i) => (
@@ -354,7 +354,7 @@ function Comparison() {
       cls: "diy", good: false, tag: "Doing it yourself",
       points: [
         "You learn a dozen AI apps instead of running your business",
-        "Endless trial and error — hours gone on every clip",
+        "Endless trial and error, hours gone on every clip",
         "Credits burned testing what does and doesn’t work",
         "No system for what’s actually winning",
         "Your focus leaves the product you’re meant to grow",
@@ -363,19 +363,19 @@ function Comparison() {
     {
       cls: "editor", good: false, tag: "Hiring a video editor",
       points: [
-        "They can generate clips — but not the story",
+        "They can generate clips, but not the story",
         "Weak on scripting and concept ideation",
         "No system for what’s winning and what isn’t",
         "You still write the scripts and hand over the ideas",
-        "Editing only — the thinking stays on your plate",
+        "Editing only, the thinking stays on your plate",
       ],
     },
     {
       cls: "tas", good: true, tag: "Working with TAS",
       points: [
-        "Ideas, concepts & scripting — handled by us",
-        "Characters, worlds & emotion — built for you",
-        "Voiceovers, editing & final delivery — done",
+        "Ideas, concepts & scripting, handled by us",
+        "Characters, worlds & emotion, built for you",
+        "Voiceovers, editing & final delivery, done",
         "Senior creative direction on every ad",
         "A system that tracks what’s winning and scales it",
         "You stay on your product; we run the creative",
@@ -387,7 +387,7 @@ function Comparison() {
       <div className="wrap">
         <div className="section-head">
           <h2>Three ways to make your ads. Only one keeps you focused.</h2>
-          <p>Doing it yourself or handing clips to an editor still leaves the hardest part — the ideas, the story, the system — on you. We take the whole creative off your plate.</p>
+          <p>Doing it yourself or handing clips to an editor still leaves the hardest part, the ideas, the story, the system, on you. We take the whole creative off your plate.</p>
         </div>
         <div className="compare-grid three">
           {cols.map((c) => (
@@ -418,7 +418,7 @@ function Pricing() {
       <div className="wrap">
         <div className="section-head">
           <h2>AI animation ads, built to scale.</h2>
-          <p>Full concept-to-delivery animation ad production — idea, concept, script, generation and editing — with 3 free revisions on every package.</p>
+          <p>Full concept-to-delivery animation ad production, idea, concept, script, generation and editing, with 3 free revisions on every package.</p>
         </div>
         <div className="pricing-grid">
           {PRICING.map((p) => (
@@ -492,7 +492,7 @@ function Footer() {
         <a className="brand" href="#top"><img className="brand-logo" src="assets/logo-white.png" alt="TAS Digital" /></a>
         <p className="footer-tag">AI animation ads that unlock new audiences.</p>
         <div className="footer-right">
-          <a className="footer-social" href="https://www.instagram.com/tasdigital/" target="_blank" rel="noopener noreferrer" aria-label="TAS Digital on Instagram">
+          <a className="footer-social" href="https://www.instagram.com/tas.digitalagency/" target="_blank" rel="noopener noreferrer" aria-label="TAS Digital on Instagram">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" /></svg>
           </a>
           <span className="footer-copy">© {new Date().getFullYear()} TAS Digital</span>

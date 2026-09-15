@@ -29,11 +29,7 @@ function Nav({ cta }) {
 
 /* shared bits used across treatments */
 function GuaranteePill() {
-  return (
-    <span className="pill">
-      <span className="dot-live" /> AI animation ads
-    </span>);
-
+  return null;
 }
 function HeroTrust({ cta }) {
   return (
@@ -48,7 +44,7 @@ function HeroTrust({ cta }) {
 }
 
 function Hero({ treatment, headline, sub, cta, videoId }) {
-  const badge = <><span className="dot-live" /> AI animation</>;
+  const badge = null;
 
   /* A — Centered classic VSL */
   if (treatment === "centered") {

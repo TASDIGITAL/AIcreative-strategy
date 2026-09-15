@@ -189,7 +189,7 @@ const STATICS = STATIC_IDS.map((id, i) => ({
 const FAQS = [
   {
     q: "How fast will I get my videos?",
-    a: "We kick off with a quick onboarding meeting. Within 3 days you receive your concept ideas. Once you approve, your first video lands in 3–5 business days — and the rest follow from there.",
+    a: "We kick off with a quick onboarding meeting. Within 3 days you receive your concept ideas. Once you approve, your first video lands in 3-5 business days, and the rest follow from there.",
   },
   {
     q: "How many revisions do I get?",
@@ -197,14 +197,14 @@ const FAQS = [
   },
   {
     q: "How many variations do I get per video?",
-    a: "2 variations per video — different hooks or angles you can test against each other to find what performs.",
+    a: "2 variations per video, different hooks or angles you can test against each other to find what performs.",
   },
   {
     q: "Why animation ads instead of the usual creatives?",
-    a: "Animation lets you show what live-action can’t — characters, worlds, transformations, before-and-afters — so your ad stops the scroll in a feed full of talking heads. It’s the format opening up fresh reach and new audiences right now, and it carries story and emotion far better than a plain demo.",
+    a: "Animation lets you show what live-action can’t, characters, worlds, transformations, before-and-afters, so your ad stops the scroll in a feed full of talking heads. It’s the format opening up fresh reach and new audiences right now, and it carries story and emotion far better than a plain demo.",
   },
   {
-    q: "Are these really “AI” creatives — or just templates?",
+    q: "Are these really “AI” creatives, or just templates?",
     a: "Real production powered by AI tooling. We use generative models for ideation, scripting, visuals and variation, then a human creative team directs and polishes every video. You get the speed of AI with the taste of a senior creative team.",
   },
   {
@@ -213,7 +213,7 @@ const FAQS = [
   },
   {
     q: "Do I keep the rights to everything?",
-    a: "Yes. Every video we produce is yours to keep and run wherever you like, forever — no licensing games, no usage caps.",
+    a: "Yes. Every video we produce is yours to keep and run wherever you like, forever, no licensing games, no usage caps.",
   },
 ];
 
@@ -228,7 +228,7 @@ const PRICING = [
     lead: "5 animation videos",
     features: [
       "5 AI animation ad videos",
-      "60–90 sec each",
+      "60-90 sec each",
       "2 variations per video",
       "Full concept → script → generation → editing",
       "3 free revisions",
@@ -244,7 +244,7 @@ const PRICING = [
     lead: "10 animation videos",
     features: [
       "10 AI animation ad videos",
-      "60–90 sec each",
+      "60-90 sec each",
       "2 variations per video",
       "Full concept → script → generation → editing",
       "3 free revisions",
@@ -260,7 +260,7 @@ const PRICING = [
     lead: "20 animation videos",
     features: [
       "20 AI animation ad videos",
-      "60–90 sec each",
+      "60-90 sec each",
       "2 variations per video",
       "Priority production queue",
       "3 free revisions",

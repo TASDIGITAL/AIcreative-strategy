@@ -6,7 +6,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "heroTreatment": "split",
   "accent": "#9D7BFF",
   "headline": "AI animation ads unlock better CPAs and better audiences.",
-  "sub": "Scroll-stopping animated ads that tell a story people actually feel — the format winning fresh reach and new audiences right now. Made with AI, directed by a senior creative team.",
+  "sub": "Scroll-stopping animated ads that tell a story people actually feel, the format winning fresh reach and new audiences right now. Made with AI, directed by a senior creative team.",
   "cta": "Partner with us",
   "videoId": "b22cd8378f8eb0293c78ffc7b711c320"
 }/*EDITMODE-END*/;
