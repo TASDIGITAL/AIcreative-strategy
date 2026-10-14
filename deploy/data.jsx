@@ -45,9 +45,6 @@ const streamPoster = (uid) => "https://" + STREAM_SUB + "/" + uid + "/thumbnails
 // Video creatives — vertical 9:16 reels, hosted on Cloudflare Stream.
 const REEL_UIDS = [
   // --- Newest AI videos (Aug 2026) — featured first ---
-  "9544bfb953b0e7522818884fdae14d93", // clip8_creator_casting.mp4
-  "9072c9d976583f6a649f4147e04eda18", // clip13_andromeda.mp4
-  "c013eba8519b1614a2ba12e3ab5d4466", // clip12_roas_truth.mp4
   "a36c3785e1eab8f7fdcf38896baefa5c", // AV75-B25-C32 (AI)
   "578c1de2015dae85fe443ce88d8d03ef", // TV10 — A $1000 Mistake (podcast module)
   "c5f599fbdff2afb167eecdb412f3a7d1", // AV51 — Don't be like Marcus (claymation)
