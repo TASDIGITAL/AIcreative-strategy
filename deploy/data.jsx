@@ -45,6 +45,14 @@ const streamPoster = (uid) => "https://" + STREAM_SUB + "/" + uid + "/thumbnails
 // Video creatives — vertical 9:16 reels, hosted on Cloudflare Stream.
 const REEL_UIDS = [
   // --- Newest AI videos (Aug 2026) — featured first ---
+  "4c9d0c2cab139ac4264d3c0bbaa74e33", // TAS-Iteration-FIXD Speaks - Animated Mascot-UK-V1.mp4
+  "05d4ab015a8e1df75487f0e43ad31aca", // TV110-Long sitting hours is destroying your back-V1.mp4
+  "c13c01268f13326e349752ee17ee26f2", // TAS-TV7-B1-Alcoholshiddentaxonlife-V2.mp4
+  "6d38b4d2afb1bd6b866d793f06fe7bd0", // TV2-The Wind-Down Ritual-AI Animation Module-V1 .mp4
+  "139d60ccf31d2a3e724748634f15ecfb", // TV35-B5-The Breakup & Upgrade-AI Animation-V1.mp4
+  "e80dee0a3fd7061bc916124d1ed64120", // TV09-B2-Stop Wasting Your Time & Efforts-AI Animation-V1.mp4
+  "c14c7c5cb885a4fe40490c41a78295c9", // TV100-B57-Transform Your Workspace AI Animation-V2.mp4
+  "b4e1df4acd05e1385dddb910080ced03", // TV87-Pain Relief-Animation-V2.mp4
   "a36c3785e1eab8f7fdcf38896baefa5c", // AV75-B25-C32 (AI)
   "578c1de2015dae85fe443ce88d8d03ef", // TV10 — A $1000 Mistake (podcast module)
   "c5f599fbdff2afb167eecdb412f3a7d1", // AV51 — Don't be like Marcus (claymation)
