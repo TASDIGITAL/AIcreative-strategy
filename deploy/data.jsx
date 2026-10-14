@@ -45,6 +45,10 @@ const streamPoster = (uid) => "https://" + STREAM_SUB + "/" + uid + "/thumbnails
 // Video creatives — vertical 9:16 reels, hosted on Cloudflare Stream.
 const REEL_UIDS = [
   // --- Newest AI videos (Aug 2026) — featured first ---
+  "c16b835756e2095290f5d3a68180eefc", // 03 - Shadana Yoga - TV16 B3 V1.mp4
+  "4c52e2e2365937e54d8cc977588b4b4f", // 34 - AI illustration, motorcycle in the heat (FR).mp4
+  "48121c6685fa456078fb1e4a50924b6b", // 35 - AI illustration, motorcycle at sunset (FR).mp4
+  "a1db313847b39143cace5a84e7a8c125", // 36 - AI animation, One rescue mission.mp4
   "4c9d0c2cab139ac4264d3c0bbaa74e33", // TAS-Iteration-FIXD Speaks - Animated Mascot-UK-V1.mp4
   "05d4ab015a8e1df75487f0e43ad31aca", // TV110-Long sitting hours is destroying your back-V1.mp4
   "c13c01268f13326e349752ee17ee26f2", // TAS-TV7-B1-Alcoholshiddentaxonlife-V2.mp4
