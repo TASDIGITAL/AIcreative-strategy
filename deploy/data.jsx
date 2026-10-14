@@ -45,6 +45,9 @@ const streamPoster = (uid) => "https://" + STREAM_SUB + "/" + uid + "/thumbnails
 // Video creatives — vertical 9:16 reels, hosted on Cloudflare Stream.
 const REEL_UIDS = [
   // --- Newest AI videos (Aug 2026) — featured first ---
+  "c263c02cf97897a4016021527a70b097", // 37 - Bellalab - TV1 Mandatory Preventive Checkup Shock.mp4
+  "ed5801e2fa52ab94345ae7a9da3cd392", // 38 - Bellalab - TV2 Joint and Mobility Track.mp4
+  "0854d8090ac4ecd377596f4536203a0e", // 39 - Bellalab - TV3 Chronic Burnout Animation.mp4
   "c16b835756e2095290f5d3a68180eefc", // 03 - Shadana Yoga - TV16 B3 V1.mp4
   "4c52e2e2365937e54d8cc977588b4b4f", // 34 - AI illustration, motorcycle in the heat (FR).mp4
   "48121c6685fa456078fb1e4a50924b6b", // 35 - AI illustration, motorcycle at sunset (FR).mp4
