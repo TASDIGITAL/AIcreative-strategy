@@ -45,6 +45,9 @@ const streamPoster = (uid) => "https://" + STREAM_SUB + "/" + uid + "/thumbnails
 // Video creatives — vertical 9:16 reels, hosted on Cloudflare Stream.
 const REEL_UIDS = [
   // --- Newest AI videos (Aug 2026) — featured first ---
+  "7077810835db257f95743f78f4bef3a2", // 40 - Ergonomist - TV110 Long sitting hours is destroying your back.mp4
+  "2c821e383a0487a7c1b6bb176faf1a08", // 41 - Gratsi - Clay Maeve master 9x16.mp4
+  "a74c7d6f5234342f3a11b1f971ac3646", // 42 - TAS Digital - Felt 50 AI ads, characters for every persona.mp4
   "c263c02cf97897a4016021527a70b097", // 37 - Bellalab - TV1 Mandatory Preventive Checkup Shock.mp4
   "ed5801e2fa52ab94345ae7a9da3cd392", // 38 - Bellalab - TV2 Joint and Mobility Track.mp4
   "0854d8090ac4ecd377596f4536203a0e", // 39 - Bellalab - TV3 Chronic Burnout Animation.mp4
