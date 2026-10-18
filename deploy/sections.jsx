@@ -243,6 +243,49 @@ function ReelTile({ v, onOpen }) {
   );
 }
 
+function ReelRow({ items, base, side, onOpen }) {
+  const ref = React.useRef(null);
+  const st = React.useRef({ x: 0, half: 0, hover: false, drag: false, lastX: 0, moved: 0 });
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const s = st.current;
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const measure = () => { s.half = el.scrollWidth / 2; };
+    measure();
+    let ro;
+    if (window.ResizeObserver) { ro = new ResizeObserver(measure); ro.observe(el); }
+    const wrap = () => { if (s.half <= 0) return; while (s.x <= -s.half) s.x += s.half; while (s.x > 0) s.x -= s.half; };
+    const apply = () => { el.style.transform = "translateX(" + s.x + "px)"; };
+    let raf;
+    const tick = () => { if (!reduce && !s.hover && !s.drag && s.half > 0) { s.x += base; wrap(); apply(); } raf = requestAnimationFrame(tick); };
+    raf = requestAnimationFrame(tick);
+    const onEnter = () => { s.hover = true; };
+    const onLeave = () => { s.hover = false; };
+    const onDown = (e) => { s.drag = true; s.lastX = e.clientX; s.moved = 0; el.classList.add("grabbing"); try { el.setPointerCapture(e.pointerId); } catch (x) {} };
+    const onMove = (e) => { if (!s.drag) return; const dx = e.clientX - s.lastX; s.lastX = e.clientX; s.x += dx; s.moved += Math.abs(dx); wrap(); apply(); };
+    const onUp = () => { if (!s.drag) return; s.drag = false; el.classList.remove("grabbing"); };
+    const onWheel = (e) => { if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && e.deltaX !== 0) { e.preventDefault(); s.x -= e.deltaX; wrap(); apply(); } };
+    el.addEventListener("pointerenter", onEnter);
+    el.addEventListener("pointerleave", onLeave);
+    el.addEventListener("pointerdown", onDown);
+    el.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => { cancelAnimationFrame(raf); if (ro) ro.disconnect(); el.removeEventListener("pointerenter", onEnter); el.removeEventListener("pointerleave", onLeave); el.removeEventListener("pointerdown", onDown); el.removeEventListener("pointermove", onMove); window.removeEventListener("pointerup", onUp); el.removeEventListener("wheel", onWheel); };
+  }, [base]);
+  const onClickCapture = (e) => { if (st.current.moved > 6) { e.preventDefault(); e.stopPropagation(); } };
+  return (
+    <div className={"reel-row " + side} ref={ref} onClickCapture={onClickCapture}>
+      {items.map((v, i) => (
+        <div className="reel-mq" key={i} aria-hidden={i >= items.length / 2}>
+          <ReelTile v={v} onOpen={onOpen} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function Videos({ onOpen }) {
   const half = Math.ceil(VIDEOS.length / 2);
   const rows = [VIDEOS.slice(0, half), VIDEOS.slice(half)];
@@ -256,13 +299,7 @@ function Videos({ onOpen }) {
       </div>
       <div className="reel-marquee">
         {rows.map((row, r) => (
-          <div className={"reel-row " + (r === 0 ? "a" : "b")} key={r}>
-            {[...row, ...row].map((v, i) => (
-              <div className="reel-mq" key={r + "-" + i} aria-hidden={i >= row.length}>
-                <ReelTile v={v} onOpen={onOpen} />
-              </div>
-            ))}
-          </div>
+          <ReelRow key={r} items={[...row, ...row]} base={r === 0 ? -0.5 : 0.5} side={r === 0 ? "a" : "b"} onOpen={onOpen} />
         ))}
       </div>
     </section>

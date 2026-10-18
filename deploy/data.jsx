@@ -19,7 +19,7 @@ const CLIENTS = [
 // Headline proof numbers.
 const STATS = [
   { value: "$90M+", label: "generated for our clients" },
-  { value: "8,500+", label: "creatives produced last year" },
+  { value: "8,500+", label: "creatives produced in the last 12 months" },
   { value: "3×", label: "average return on ad spend" },
 ];
 
