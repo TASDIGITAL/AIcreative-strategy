@@ -157,34 +157,30 @@ function detachStreamSrc(el) {
 /* The VSL — 16:9 click-to-play facade. Accepts a YouTube ID or a Cloudflare
    Stream video UID (32-char hex); no media loads until the visitor clicks. */
 function VSLPlayer({ videoId, badge }) {
-  const [playing, setPlaying] = useState(false);
+  const [sound, setSound] = useState(false);
   const isStream = /^[0-9a-f]{32}$/.test(videoId || "");
   const embedSrc = isStream
-    ? `https://${window.STREAM_SUB}/${videoId}/iframe?autoplay=true&preload=metadata`
-    : `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-  const posterSrc = isStream
-    ? `https://${window.STREAM_SUB}/${videoId}/thumbnails/thumbnail.jpg?time=2s&height=720`
-    : null;
+    ? `https://${window.STREAM_SUB}/${videoId}/iframe?autoplay=true&muted=${sound ? "false" : "true"}&preload=metadata`
+    : `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=${sound ? "0" : "1"}&rel=0`;
   return (
     <div className="vsl">
       {badge && <div className="vsl-badge">{badge}</div>}
       <div className="vsl-frame">
-        {playing && videoId ? (
-          <iframe
-            src={embedSrc}
-            title="TAS Digital VSL" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen
-          />
-        ) : (
-          <button className="vsl-poster" onClick={() => setPlaying(true)} aria-label="Play video">
-            {posterSrc ? (
-              <img src={posterSrc} alt="" loading="eager"
-                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-            ) : (
-              <Placeholder label="VSL · 16:9" />
+        {videoId ? (
+          <>
+            <iframe
+              src={embedSrc}
+              title="TAS Digital VSL" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen
+            />
+            {!sound && (
+              <button className="vsl-unmute" onClick={() => setSound(true)} aria-label="Tap for sound"
+                style={{ position: "absolute", left: "50%", bottom: "16px", transform: "translateX(-50%)", display: "inline-flex", alignItems: "center", gap: "8px", padding: "10px 18px", borderRadius: "999px", border: "1px solid rgba(255,255,255,.28)", background: "rgba(10,10,14,.72)", color: "#fff", fontWeight: 600, fontSize: "14px", letterSpacing: ".01em", cursor: "pointer", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", zIndex: 3 }}>
+                <span aria-hidden="true" style={{ fontSize: "13px" }}>&#9654;</span> Tap for sound
+              </button>
             )}
-            <span className="vsl-play"><PlayIcon size={30} /></span>
-            <span className="vsl-dur">1:13</span>
-          </button>
+          </>
+        ) : (
+          <Placeholder label="VSL · 16:9" />
         )}
       </div>
     </div>
