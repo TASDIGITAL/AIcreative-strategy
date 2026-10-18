@@ -8,7 +8,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "headline": "AI animation ads unlock better CPAs and better audiences.",
   "sub": "Scroll-stopping animated ads that tell a story people actually feel, the format winning fresh reach and new audiences right now. Made with AI, directed by a senior creative team.",
   "cta": "Partner with us",
-  "videoId": "b22cd8378f8eb0293c78ffc7b711c320"
+  "videoId": "5b3f6033e2bbe0b13a30e28dc027a48a"
 }/*EDITMODE-END*/;
 
 function renderHeadline(text) {
