@@ -5,9 +5,9 @@
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "heroTreatment": "split",
   "accent": "#9D7BFF",
-  "headline": "AI animation ads unlock better CPAs and better audiences.",
+  "headline": "Get 50 AI animation ads in 30 days to unlock lower CPAs and new audiences.",
   "sub": "Scroll-stopping animated ads that tell a story people actually feel, the format winning fresh reach and new audiences right now. Made with AI, directed by a senior creative team.",
-  "cta": "Partner with us",
+  "cta": "Get 50 AI ads at scale",
   "videoId": "5b3f6033e2bbe0b13a30e28dc027a48a"
 }/*EDITMODE-END*/;
 
@@ -43,7 +43,6 @@ function App() {
       <TechStack />
       <Process />
       <Comparison />
-      <Pricing />
       <FAQ />
       <FinalCTA cta={t.cta} />
       <Footer />
