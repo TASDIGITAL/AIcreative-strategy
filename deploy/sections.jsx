@@ -476,6 +476,60 @@ function Pricing() {
   );
 }
 
+function WhoFor() {
+  const [open, setOpen] = useState(0);
+  const forItems = [
+    { t: "Founders ready to delegate", d: "You do not have the time to make your own ads anymore. You want winning creative at scale, run by experts who live in this every day." },
+    { t: "Brand and marketing managers", d: "You are already running ads at volume and want to open a new winning format, AI animation, without building the production pipeline yourself." },
+    { t: "Scaling brands who want more", d: "You are spending and performing, and you want more angles, more output and more winning creative feeding the account." },
+  ];
+  const notFor = [
+    "You would rather keep production fully in-house and run it yourself.",
+    "You are spending under $5k per month on ads. We are probably not the right fit yet.",
+  ];
+  const mut = "var(--muted, #9aa0aa)";
+  const line = "var(--line, rgba(255,255,255,.12))";
+  return (
+    <section className="section" id="who">
+      <div className="wrap">
+        <div className="section-head">
+          <h2>Is this built for you?</h2>
+          <p>Built for founders and teams who want winning ads at scale and would rather hand production to a team that does this every day.</p>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))", gap: "30px", alignItems: "start" }}>
+          <div>
+            <div style={{ fontSize: "12px", fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: "var(--accent, #9D7BFF)", marginBottom: "6px" }}>This is for you if</div>
+            {forItems.map((it, i) => {
+              const isOpen = open === i;
+              return (
+                <div key={i} style={{ borderBottom: "1px solid " + line }}>
+                  <button onClick={() => setOpen(isOpen ? -1 : i)} aria-expanded={isOpen} style={{ width: "100%", display: "flex", alignItems: "center", gap: "12px", background: "none", border: "none", color: "inherit", padding: "18px 0", cursor: "pointer", textAlign: "left", font: "inherit" }}>
+                    <span aria-hidden="true" style={{ color: "var(--accent, #9D7BFF)", fontWeight: 700, fontSize: "15px" }}>&#10003;</span>
+                    <span style={{ fontWeight: 600, fontSize: "17px", flex: 1 }}>{it.t}</span>
+                    <span aria-hidden="true" style={{ color: mut, fontSize: "20px", lineHeight: 1 }}>{isOpen ? "−" : "+"}</span>
+                  </button>
+                  {isOpen && <p style={{ margin: "0 0 18px 27px", color: mut, lineHeight: 1.6 }}>{it.d}</p>}
+                </div>
+              );
+            })}
+          </div>
+          <div style={{ background: "var(--surface, rgba(255,255,255,.03))", border: "1px solid " + line, borderRadius: "16px", padding: "24px 26px" }}>
+            <div style={{ fontSize: "12px", fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: mut, marginBottom: "16px" }}>Probably not the fit if</div>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: "16px" }}>
+              {notFor.map((n, i) => (
+                <li key={i} style={{ display: "flex", gap: "12px", color: mut, lineHeight: 1.55 }}>
+                  <span aria-hidden="true" style={{ color: "#6f6f78", fontSize: "15px" }}>&#10005;</span>
+                  <span>{n}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---- FAQ ---- */
 function FAQ() {
   const [open, setOpen] = useState(0);

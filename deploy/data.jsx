@@ -205,6 +205,10 @@ const STATICS = STATIC_IDS.map((id, i) => ({
 
 const FAQS = [
   {
+    q: "How are you able to produce AI ads this fast?",
+    a: "We built a system for it. Alongside a senior team of creative strategists and video editors, we run AI tools like Higgsfield, n8n automations, and our own internal systems and MCPs. That is how we produce AI animation ads at this speed and at scale.",
+  },
+  {
     q: "How fast will I get my videos?",
     a: "We kick off with a quick onboarding meeting. Within 3 days you receive your concept ideas. Once you approve, your first video lands in 3-5 business days, and the rest follow from there.",
   },

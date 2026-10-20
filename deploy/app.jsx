@@ -43,6 +43,7 @@ function App() {
       <TechStack />
       <Process />
       <Comparison />
+      <WhoFor />
       <FAQ />
       <FinalCTA cta={t.cta} />
       <Footer />
