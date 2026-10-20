@@ -158,10 +158,40 @@ function detachStreamSrc(el) {
    Stream video UID (32-char hex); no media loads until the visitor clicks. */
 function VSLPlayer({ videoId, badge }) {
   const [sound, setSound] = useState(false);
+  const iframeRef = React.useRef(null);
+  const playerRef = React.useRef(null);
   const isStream = /^[0-9a-f]{32}$/.test(videoId || "");
   const embedSrc = isStream
-    ? `https://${window.STREAM_SUB}/${videoId}/iframe?autoplay=true&muted=${sound ? "false" : "true"}&preload=metadata`
-    : `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=${sound ? "0" : "1"}&rel=0`;
+    ? `https://${window.STREAM_SUB}/${videoId}/iframe?autoplay=true&muted=true&preload=metadata`
+    : `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&rel=0`;
+  React.useEffect(() => {
+    if (!isStream || !videoId) return;
+    let timer;
+    const init = () => {
+      if (window.Stream && iframeRef.current && !playerRef.current) {
+        try { playerRef.current = window.Stream(iframeRef.current); } catch (e) {}
+      }
+    };
+    if (window.Stream) {
+      init();
+    } else {
+      let s = document.getElementById("cf-stream-sdk");
+      if (!s) {
+        s = document.createElement("script");
+        s.id = "cf-stream-sdk";
+        s.src = "https://embed.cloudflarestream.com/embed/sdk.latest.js";
+        document.head.appendChild(s);
+      }
+      timer = setInterval(() => { if (window.Stream) { init(); clearInterval(timer); } }, 150);
+    }
+    return () => { if (timer) clearInterval(timer); };
+  }, [isStream, videoId]);
+  const enableSound = () => {
+    setSound(true);
+    const p = playerRef.current;
+    if (p) { try { p.muted = false; if (p.play) p.play(); } catch (e) {} return; }
+    if (iframeRef.current) { try { iframeRef.current.src = iframeRef.current.src.replace("muted=true", "muted=false"); } catch (e) {} }
+  };
   return (
     <div className="vsl">
       {badge && <div className="vsl-badge">{badge}</div>}
@@ -169,11 +199,12 @@ function VSLPlayer({ videoId, badge }) {
         {videoId ? (
           <>
             <iframe
+              ref={iframeRef}
               src={embedSrc}
               title="TAS Digital VSL" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen
             />
             {!sound && (
-              <button className="vsl-unmute" onClick={() => setSound(true)} aria-label="Tap for sound"
+              <button className="vsl-unmute" onClick={enableSound} aria-label="Tap for sound"
                 style={{ position: "absolute", left: "50%", bottom: "16px", transform: "translateX(-50%)", display: "inline-flex", alignItems: "center", gap: "8px", padding: "10px 18px", borderRadius: "999px", border: "1px solid rgba(255,255,255,.28)", background: "rgba(10,10,14,.72)", color: "#fff", fontWeight: 600, fontSize: "14px", letterSpacing: ".01em", cursor: "pointer", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", zIndex: 3 }}>
                 <span aria-hidden="true" style={{ fontSize: "13px" }}>&#9654;</span> Tap for sound
               </button>
