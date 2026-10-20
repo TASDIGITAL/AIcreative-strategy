@@ -28,6 +28,7 @@ const STACK = [
   { name: "ChatGPT 2.0", role: "Image generation", logo: "openai.svg", note: "On-brand concepts and product imagery, generated and iterated at scale." },
   { name: "Atria", role: "Analysis", logo: "atria.png", note: "Deep ad and funnel analysis that pinpoints exactly what to test next." },
   { name: "Kling AI", role: "AI video", logo: "kling.png", note: "Photo-real generative video for scroll-stopping motion." },
+  { name: "Higgsfield", role: "AI motion", logo: "higgsfield.svg", note: "Cinematic AI motion and character animation that brings each frame to life." },
   { name: "Claude", role: "Creative agents", logo: "claude.svg", note: "Custom Claude agents that turn a brief into production-ready creative." },
   { name: "n8n", role: "Automation", logo: "n8n.svg", note: "Pipelines that run brief-to-delivery, hands-off." },
   { name: "Suno", role: "AI audio", logo: "suno.svg", note: "Original music and sound beds tailored to every cut." },
