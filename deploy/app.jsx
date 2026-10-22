@@ -28,12 +28,12 @@ function App() {
 
   return (
     <>
-      <Nav cta={t.cta} />
+      <Nav cta={CTA_LABEL || t.cta} />
       <Hero
         treatment={t.heroTreatment}
         headline={renderHeadline(t.headline)}
         sub={t.sub}
-        cta={t.cta}
+        cta={CTA_LABEL || t.cta}
         videoId={t.videoId}
       />
       <Logos />
@@ -45,7 +45,7 @@ function App() {
       <Comparison />
       <WhoFor />
       <FAQ />
-      <FinalCTA cta={t.cta} />
+      <FinalCTA cta={CTA_LABEL || t.cta} />
       <Footer />
 
       {lb && <Lightbox item={lb.item} kind={lb.kind} onClose={() => setLb(null)} />}

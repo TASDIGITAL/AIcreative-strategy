@@ -24,6 +24,12 @@ const STATS = [
 ];
 
 // AI tech stack — the pipeline behind every creative.
+const UPWORK_URL = "https://www.upwork.com/freelancers/ecommgrowth";
+const BOOK_URL = "https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives";
+const PORTFOLIO = (function () { try { var p = location.pathname.replace(/\/+$/, ""); return p === "/portfolio" || p.endsWith("/portfolio") || /(workers|pages)\.dev$/.test(location.hostname); } catch (e) { return false; } })();
+const CTA_URL = PORTFOLIO ? UPWORK_URL : BOOK_URL;
+const CTA_LABEL = PORTFOLIO ? "Contact us on Upwork" : null;
+
 const STACK = [
   { name: "ChatGPT 2.0", role: "Image generation", logo: "openai.svg", note: "On-brand concepts and product imagery, generated and iterated at scale." },
   { name: "Atria", role: "Analysis", logo: "atria.png", note: "Deep ad and funnel analysis that pinpoints exactly what to test next." },

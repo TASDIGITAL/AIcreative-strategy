@@ -439,7 +439,7 @@ function Comparison() {
                 ))}
               </ul>
               {c.good ? (
-                <a href="https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-primary compare-cta">Partner with us →</a>
+                <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary compare-cta">{PORTFOLIO ? "Contact us on Upwork" : "Partner with us"} →</a>
               ) : null}
             </div>
           ))}
@@ -466,7 +466,7 @@ function Pricing() {
               <ul className="price-feats">
                 {p.features.map((f, i) => <li key={i}>{f}</li>)}
               </ul>
-              <a href="https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-primary price-cta">Partner with us →</a>
+              <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary price-cta">{PORTFOLIO ? "Contact us on Upwork" : "Partner with us"} →</a>
             </div>
           ))}
         </div>
@@ -538,8 +538,8 @@ function FAQ() {
       <div className="wrap faq-wrap">
         <div className="faq-aside">
           <h2>Questions, answered.</h2>
-          <p>Still unsure? Book a call and we’ll map your first animation concepts live.</p>
-          <a href="https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ marginTop: 8 }}>Book a call →</a>
+          <p>{PORTFOLIO ? "Still unsure? Reach out on Upwork and we’ll map your first animation concepts." : "Still unsure? Book a call and we’ll map your first animation concepts live."}</p>
+          <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ marginTop: 8 }}>{PORTFOLIO ? "Contact us on Upwork" : "Book a call"} →</a>
         </div>
         <div className="faq-list">
           {FAQS.map((f, i) => (
@@ -565,11 +565,11 @@ function FinalCTA({ cta }) {
         <div className="cta-box">
           <div className="cta-aura" />
           <h2 className="cta-h">Let’s make AI ads that convert.</h2>
-          <p className="cta-sub">Book a free strategy call. We’ll look at your funnel and map the animation ideas that open up your next audience.</p>
+          <p className="cta-sub">{PORTFOLIO ? "Explore the work below, then message us on Upwork and we’ll map the animation ideas that open up your next audience." : "Book a free strategy call. We’ll look at your funnel and map the animation ideas that open up your next audience."}</p>
           <div className="cta-actions">
-            <a href="https://api.leadconnectorhq.com/widget/bookings/tas-digital-discovery-callyetoev?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">{cta} <span aria-hidden="true">→</span></a>
-            <span className="cta-note">30 min · no pitch deck · walk away with a plan</span>
-            <a className="soft-cta" href="https://creative.tas-digital.ai?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives_playbook" target="_blank" rel="noopener noreferrer">Not ready to talk yet? Get the free Creative Playbook <span aria-hidden="true">→</span></a>
+            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">{cta} <span aria-hidden="true">→</span></a>
+            <span className="cta-note">{PORTFOLIO ? "Message us on Upwork · walk away with a plan" : "30 min · no pitch deck · walk away with a plan"}</span>
+            {!PORTFOLIO && (<a className="soft-cta" href="https://creative.tas-digital.ai?utm_source=aicreatives_lp&utm_medium=landing_page&utm_campaign=aicreatives_playbook" target="_blank" rel="noopener noreferrer">Not ready to talk yet? Get the free Creative Playbook <span aria-hidden="true">→</span></a>)}
           </div>
         </div>
       </div>
