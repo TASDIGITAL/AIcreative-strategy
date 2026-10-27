@@ -262,9 +262,9 @@ function ReelRow({ items, base, side, onOpen }) {
     raf = requestAnimationFrame(tick);
     const onEnter = () => { s.hover = true; };
     const onLeave = () => { s.hover = false; };
-    const onDown = (e) => { s.drag = true; s.lastX = e.clientX; s.moved = 0; el.classList.add("grabbing"); try { el.setPointerCapture(e.pointerId); } catch (x) {} };
-    const onMove = (e) => { if (!s.drag) return; const dx = e.clientX - s.lastX; s.lastX = e.clientX; s.x += dx; s.moved += Math.abs(dx); wrap(); apply(); };
-    const onUp = () => { if (!s.drag) return; s.drag = false; el.classList.remove("grabbing"); };
+    const onDown = (e) => { s.down = true; s.drag = false; s.lastX = e.clientX; s.moved = 0; };
+    const onMove = (e) => { if (!s.down) return; const dx = e.clientX - s.lastX; s.lastX = e.clientX; s.moved += Math.abs(dx); if (!s.drag && s.moved > 4) { s.drag = true; el.classList.add("grabbing"); try { el.setPointerCapture(e.pointerId); } catch (x) {} } if (s.drag) { s.x += dx; wrap(); apply(); } };
+    const onUp = () => { if (!s.down) return; s.down = false; if (s.drag) { s.drag = false; el.classList.remove("grabbing"); } };
     const onWheel = (e) => { if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && e.deltaX !== 0) { e.preventDefault(); s.x -= e.deltaX; wrap(); apply(); } };
     el.addEventListener("pointerenter", onEnter);
     el.addEventListener("pointerleave", onLeave);
