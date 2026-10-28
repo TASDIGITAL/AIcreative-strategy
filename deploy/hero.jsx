@@ -13,7 +13,7 @@ function Nav({ cta }) {
     <nav className={"nav" + (scrolled ? " scrolled" : "")}>
       <div className="wrap nav-inner">
         <a className="brand" href="#top">
-          <img className="brand-logo" src="assets/logo-white.png" alt="TAS Digital" />
+          <img className="brand-logo" src="/assets/logo-white.png" alt="TAS Digital" />
         </a>
         <div className="nav-links">
           <a className="nav-link" href="#work">Work</a>
