@@ -11,8 +11,8 @@ function Logos() {
       </div>
       <div className="logos-strip-mq">
         <div className="logos-strip-track">
-          <img className="logos-strip" src="assets/clients-strip.png" alt="Client logos" />
-          <img className="logos-strip" src="assets/clients-strip.png" alt="" aria-hidden="true" />
+          <img className="logos-strip" src="/assets/clients-strip.png" alt="Client logos" />
+          <img className="logos-strip" src="/assets/clients-strip.png" alt="" aria-hidden="true" />
         </div>
       </div>
     </section>
@@ -345,7 +345,7 @@ function TechStack() {
           {STACK.concat(STACK).map((s, i) => (
             <div key={i} className="stack-card">
               <span className="stack-step">{String((i % STACK.length) + 1).padStart(2, "0")}</span>
-              <img className={"stack-logo" + (s.logo.endsWith(".png") ? " stack-logo--chip" : "")} src={"assets/logos/" + s.logo} alt={s.name + " logo"} />
+              <img className={"stack-logo" + (s.logo.endsWith(".png") ? " stack-logo--chip" : "")} src={"/assets/logos/" + s.logo} alt={s.name + " logo"} />
               <div className="stack-name">{s.name}</div>
               <span className="stack-role">{s.role}</span>
               <p className="stack-note">{s.note}</p>
@@ -581,7 +581,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="wrap footer-inner">
-        <a className="brand" href="#top"><img className="brand-logo" src="assets/logo-white.png" alt="TAS Digital" /></a>
+        <a className="brand" href="#top"><img className="brand-logo" src="/assets/logo-white.png" alt="TAS Digital" /></a>
         <p className="footer-tag">AI animation ads that unlock new audiences.</p>
         <div className="footer-right">
           <a className="footer-social" href="https://www.instagram.com/tas.digitalagency/" target="_blank" rel="noopener noreferrer" aria-label="TAS Digital on Instagram">
